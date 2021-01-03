@@ -59,7 +59,8 @@ class MonControleur {
 		$pass = filter_var($post['pass'] , FILTER_SANITIZE_STRING) ;
 		
 		$u2 = User::where('login','=',$login)->first();
-		if ($u2->id == 0) {
+		var_dump($u2);
+		if ($u2 == null) {
 			$u = new User();
 			$u->login = $login;
 			$u->pass = password_hash($pass, PASSWORD_DEFAULT);
@@ -97,8 +98,7 @@ class MonControleur {
 		$login       = filter_var($post['login']       , FILTER_SANITIZE_STRING) ;
 		$pass = filter_var($post['pass'] , FILTER_SANITIZE_STRING) ;
 		$u = User::where('login','=',$login)->first();
-		$res = password_verify($pass, $u->pass);
-		
+		$res = password_verify($pass,$u->pass);
 		if ($res) $_SESSION['iduser'] = $u->id;
 		
 		$vue = new VueWish( [ 'res' => $res ] , $this->container ) ;
