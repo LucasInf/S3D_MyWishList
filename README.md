@@ -11,6 +11,7 @@
 5. [ ] *Ajouter un message sur une liste*
 
 ### Créateur
+
 6. [ ] *Créer une liste*
 7. [ ] *Modifier les informations générales d'une de ses listes*
 8. [ ] *Ajouter des items*
@@ -24,6 +25,7 @@
 16. [ ] *Consulter les réservations et messages d'une de ses listes après échéance*
 
 ### Extensions
+
 17. [ ] *Créer un compte*
 18. [ ] *S'authentifier*
 19. [ ] *Modifier son compte*
