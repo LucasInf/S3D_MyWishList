@@ -9,7 +9,7 @@ use \mywishlist\models\Liste;
 $db = new DB();
 $db->addConnection(
 parse_ini_file('src/conf/conf.ini'));
-
+//$db->addConnection(parse_ini_file('../../../conf.ini')); webetu
 
 
 $db->setAsGlobal();
