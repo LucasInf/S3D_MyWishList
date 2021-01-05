@@ -4,7 +4,7 @@
 
 ### Participant
 
-1. [ ] *Afficher une lsite de souhaits*
+1. [ ] *Afficher une liste de souhaits*
 2. [ ] *Afficher un item d'une liste*
 3. [ ] *Réserver un item*
 4. [ ] *Ajouter un message avec sa réservation*
@@ -12,7 +12,7 @@
 
 ### Créateur
 
-6. [ ] *Créer une liste*
+6. [x] *Créer une liste* (Veynand Lucas)
 7. [ ] *Modifier les informations générales d'une de ses listes*
 8. [ ] *Ajouter des items*
 9. [ ] *Modifier un item*
