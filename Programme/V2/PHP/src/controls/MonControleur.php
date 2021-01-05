@@ -29,18 +29,7 @@ class MonControleur {
 		$rs->getBody()->write( $vue->render( 1 ) ) ;
 		return $rs;
 	}	
-	public function afficherListe(Request $rq, Response $rs, $args) : Response {
-		$liste = Liste::find( $args['no'] ) ;
-		$vue = new VueWish( [ $liste->toArray() ] , $this->container ) ;
-		$rs->getBody()->write( $vue->render( 2 ) ) ;
-		return $rs;
-	}
-	public function afficherItem(Request $rq, Response $rs, $args) : Response {
-		$item = Item::find( $args['id'] ) ;
-		$vue = new VueWish( [ $item->toArray() ] , $this->container ) ;
-		$rs->getBody()->write( $vue->render( 3 ) ) ;
-		return $rs;
-	}	
+
 	public function formListe(Request $rq, Response $rs, $args) : Response {
 		// pour afficher le formulaire liste
 		$vue = new VueWish( [] , $this->container ) ;
@@ -106,16 +95,6 @@ class MonControleur {
 		return $rs;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public function newListe(Request $rq, Response $rs, $args) : Response {
 		// pour enregistrer 1 liste.....
 		$post = $rq->getParsedBody() ;
@@ -125,14 +104,10 @@ class MonControleur {
 		$l->titre = $titre;
 		$l->description = $description;
 		$l->save();
-		
-		$url_listes = $this->container->router->pathFor( 'aff_listes' ) ;	
-		return $rs->withRedirect($url_listes); 
-		
-		//$listl = Liste::all() ;
-		//$vue = new VueWish( $listl->toArray() , $this->container ) ;
-		//$rs->getBody()->write( $vue->render( 1 ) ) ;
-		//return $rs;
+
+        $url_listes = $this->container->router->pathFor( 'aff_listes' ) ;
+        return $rs->withRedirect($url_listes);
+
 	}
 	
 	

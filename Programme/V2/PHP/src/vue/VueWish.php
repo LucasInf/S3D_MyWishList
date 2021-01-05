@@ -22,22 +22,6 @@ class VueWish {
 		return $html;
 	}
 
-	private function uneListe() : string {
-		$l = $this->tab[0];
-		$html = "<h2>Liste {$l['no']}</h2>";
-		$html .= "<b>Titre:</b> {$l['titre']}<br>";
-		$html .= "<b>Description:</b> {$l['description']}<br>";
-		return $html;
-	}
-
-	private function unItem() : string {
-		$i = $this->tab[0];
-		$html = "<h2>Item {$i['id']}</h2>";
-		$html .= "<b>Nom:</b> {$i['nom']}<br>";
-		$html .= "<b>Descr:</b> {$i['descr']}<br>";
-		return $html;
-	}
-
 	private function formListe() : string {
 		$url_new_liste = $this->container->router->pathFor( 'newListe' ) ;
 		$html = <<<FIN
@@ -85,14 +69,6 @@ FIN;
 				$content = $this->lesListes();
 				break;
 			}
-			case 2 : { // liste 1
-				$content = $this->uneListe();
-				break;
-			}
-			case 3 : { // un item
-				$content = $this->unItem();
-				break;
-			}
 			case 5 : {
 				$content = $this->formListe();
 				break;
@@ -124,10 +100,6 @@ FIN;
 
 		$url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
 		$url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
-		$url_liste_1    = $this->container->router->pathFor( 'aff_liste', ['no' => 1] ) ;
-		$url_item_2     = $this->container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
-	//	$url_liste_?   = $this->container->router->pathFor( 'aff_liste', ['no' => ?] ) ; liste donnee
-	//	$url_item_?     = $this->container->router->pathFor( 'aff_item' , ['id' => ?] ) ; item donne
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
@@ -144,10 +116,6 @@ FIN;
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_liste_1">Liste 1</a></li>
-				<li><a href="$url_item_2">Item 2</a></li>
-				<li><a href="$url_liste_1">Liste ?</a></li>
-				<li><a href="$url_item_2">Item ?</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 				<li><a href="$url_formlogin">Nouveau login</a></li>
 				<li><a href="$url_testform">Test login</a></li>
