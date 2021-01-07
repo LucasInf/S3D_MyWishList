@@ -90,6 +90,11 @@ class MonControleur {
         return $rs->withRedirect($url_listes);
 
 	}
-	
-	
+    public function share(Request $rq, Response $rs, $args) : Response {
+        $liste = Liste::find( $args['no'] ) ;
+        $vue = new VueWish( [ $liste->toArray() ] , $this->container ) ;
+        $rs->getBody()->write( $vue->render( 11 ) ) ;
+        return $rs;
+    }
+
 }

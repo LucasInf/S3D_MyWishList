@@ -37,4 +37,6 @@ $app->post('/testpass' , MonControleur::class.':testpass'  )->setName('testpass'
 
 $app->get('/deconnexion' , MonControleur::class.':deconnexion'  )->setName('deconnexion'  );
 
+$app->get('/share/{no}' , MonControleur::class.':share'  )->setName('share'  );
+
 $app->run();

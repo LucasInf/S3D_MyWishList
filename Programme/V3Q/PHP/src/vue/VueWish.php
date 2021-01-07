@@ -8,6 +8,7 @@ class VueWish {
 	private $tab; // tab array PHP
 	private $container;
 
+
 	public function __construct($tab, $container) {
 		$this->tab = $tab;
 		$this->container = $container;
@@ -26,16 +27,12 @@ class VueWish {
 
     private function uneListe() : string {
         $l = $this->tab[0];
+        $url_share = $this->container->router->pathFor( 'share', ['no' => $l['no']] ) ;
         $html = "<h2>Liste {$l['no']}</h2>";
         $html .= "<b>Titre:</b> {$l['titre']}<br>";
         $html .= "<b>Description:</b> {$l['description']}<br>";
-        $html .= "<<<FIN
-<form method='POST' action=''>
-	<button type='button'>Enregistrer la liste</button>
-</form>
-FIN;";
+        $html .= "<a href='$url_share'>Partager</a>";
 
-        echo $this->container->router->pathFor( 'aff_liste', ['no' => $l['no']] ) ;
         return $html;
     }
 
@@ -63,6 +60,14 @@ FIN;
 FIN;
 		return $html;
 	}
+
+	private function share():string{
+        $l = $this->tab[0];
+        $html=$this->container->router->pathFor( 'aff_liste', ['no' => $l['no']] ) ;
+
+        return $html;
+    }
+
 
 	public function render( int $select ) : string {
 
@@ -97,6 +102,10 @@ FIN;
 				$content = "<a href='$url_deconnexion'>Deconnexion</a>";
 				break;
 			}
+            case 11:{
+                $content = $this->share();
+                break;
+            }
 
 		}
 
