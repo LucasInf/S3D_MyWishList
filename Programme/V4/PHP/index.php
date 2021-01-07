@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 use \mywishlist\controls\MonControleur;
 use \mywishlist\controls\ControlLogin;
 use \mywishlist\controls\ControlCreationListe;
+use \mywishlist\controls\ControlCreationItem;
 use \mywishlist\controls\ControlCreationLogin;
 
 $config = ['settings' => [
@@ -32,7 +33,20 @@ $app->get('/nouvelleliste' , ControlCreationListe::class.':formListe'  )->setNam
 $app->post('/nouvelleliste' , ControlCreationListe::class.':newListe'  )->setName('newListe'  );
 
 //item
+$app->get('/items' , ControlCreationItem::class.':afficherItems'  )->setName('aff_items'  );
+$app->get('/item/{id}' , ControlCreationItem::class.':afficherItem'  )->setName('aff_item'  );
+
 //Creation item
+$app->get('/nouvelitem' , ControlCreationItem::class.':formItem'  )->setName('formItem'  );
+$app->post('/nouvelitem' , ControlCreationItem::class.':newItem'  )->setName('newItem'  );
+
+//Suppression item
+$app->get('/choixdeleteItem' , ControlCreationItem::class.':choixdeleteItem'  )->setName('choixdeleteItem'  );
+$app->post('/deleteItem' , ControlCreationItem::class.':deleteItem'  )->setName('deleteItem'  );
+
+//Modification item
+$app->get('/choixmodifyItem' , ControlCreationItem::class.':choixmodifyItem'  )->setName('choixmodifyItem'  );
+$app->post('/modifyItem' , ControlCreationItem::class.':modifyItem'  )->setName('modifyItem'  );
 
 //login
 
