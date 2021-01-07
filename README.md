@@ -4,7 +4,7 @@
 
 ### Participant
 
-1. [ ] *Afficher une liste de souhaits*
+1. [x] *Afficher une liste de souhaits* (Veynand Lucas)
 2. [ ] *Afficher un item d'une liste*
 3. [ ] *Réserver un item*
 4. [ ] *Ajouter un message avec sa réservation*
@@ -26,7 +26,7 @@
 
 ### Extensions
 
-17. [ ] *Créer un compte*
+17. [x] *Créer un compte* (Veynand Lucas)
 18. [ ] *S'authentifier*
 19. [ ] *Modifier son compte*
 20. [ ] *Rendre une liste publique*
