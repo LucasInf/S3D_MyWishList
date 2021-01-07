@@ -32,6 +32,10 @@ $app->get('/liste/{no}', MonControleur::class.':afficherListe' )->setName('aff_l
 $app->get('/nouvelleliste' , ControlCreationListe::class.':formListe'  )->setName('formListe'  );
 $app->post('/nouvelleliste' , ControlCreationListe::class.':newListe'  )->setName('newListe'  );
 
+//Modification liste
+$app->get('/choixmodifyListe' , MonControleur::class.':choixmodifyListe'  )->setName('choixmodifyListe'  );
+$app->post('/modifyListe' , MonControleur::class.':modifyListe'  )->setName('modifyListe'  );
+
 //item
 $app->get('/items' , ControlCreationItem::class.':afficherItems'  )->setName('aff_items'  );
 $app->get('/item/{id}' , ControlCreationItem::class.':afficherItem'  )->setName('aff_item'  );

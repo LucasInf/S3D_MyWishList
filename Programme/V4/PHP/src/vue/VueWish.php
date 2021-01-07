@@ -36,7 +36,6 @@ class VueWish {
 
 
 
-
 	public function render( int $select ) : string {
 
 		switch ($select) {
@@ -63,6 +62,9 @@ class VueWish {
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
+
+
+
 
 		$html = <<<FIN
 <!DOCTYPE html>
