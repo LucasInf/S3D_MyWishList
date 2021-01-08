@@ -36,6 +36,9 @@ $app->post('/nouvelleliste' , ControlCreationListe::class.':newListe'  )->setNam
 $app->get('/choixmodifyListe' , MonControleur::class.':choixmodifyListe'  )->setName('choixmodifyListe'  );
 $app->post('/modifyListe' , MonControleur::class.':modifyListe'  )->setName('modifyListe'  );
 
+//Partage de la liste
+$app->get('/share/{no}' , MonControleur::class.':share'  )->setName('share'  );
+
 //item
 $app->get('/items' , ControlCreationItem::class.':afficherItems'  )->setName('aff_items'  );
 $app->get('/item/{id}' , ControlCreationItem::class.':afficherItem'  )->setName('aff_item'  );
@@ -62,5 +65,6 @@ $app->get('/testform' , ControlLogin::class.':testform'  )->setName('testform'  
 $app->post('/testpass' , ControlLogin::class.':testpass'  )->setName('testpass'  );
 
 $app->get('/deconnexion' , ControlLogin::class.':deconnexion'  )->setName('deconnexion'  );
+
 
 $app->run();

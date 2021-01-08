@@ -14,7 +14,7 @@ class VueCreationListe
         $this->container = $container;
 
     }
-
+    
     private function formListe() : string {
         $url_new_liste = $this->container->router->pathFor( 'newListe' ) ;
         $html = <<<FIN
@@ -26,6 +26,7 @@ class VueCreationListe
 FIN;
         return $html;
     }
+
 
 
     private function choixmodifyListe() : string {

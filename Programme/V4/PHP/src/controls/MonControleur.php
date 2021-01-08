@@ -79,7 +79,12 @@ class MonControleur {
         $rs->getBody()->write($vue->render(4));
         return $rs;
     }
-
+    public function share(Request $rq, Response $rs, $args) : Response {
+        $liste = Liste::find( $args['no'] ) ;
+        $vue = new VueWish( [ $liste->toArray() ] , $this->container ) ;
+        $rs->getBody()->write( $vue->render( 5 ) ) ;
+        return $rs;
+    }
 
 
 
