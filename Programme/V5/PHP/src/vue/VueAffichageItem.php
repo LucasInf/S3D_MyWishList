@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace mywishlist\vue;
 
 
-class VueConnexionLogin
+class VueAffichageItem
 {
     private $tab;
     private $container;
@@ -15,29 +15,35 @@ class VueConnexionLogin
 
     }
 
-    //permet de tester le login
-    private function testform() : string {
-        $url_testpass = $this->container->router->pathFor( 'testpass' ) ;
-        $html = <<<FIN
-<form method="POST" action="$url_testpass">
-	<label>Login:<br> <input type="text" name="login"/></label><br>
-	<label>Mot de passe: <br><input type="text" name="pass"/></label><br>
-	<button type="submit">Tester le login</button>
-</form>
-FIN;
+    private function lesItems() : string {
+        $html = '';
+        foreach($this->tab as $item){
+            $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
+            $html .= "<li><a href='$url_item'>{$item['nom']}</a>,,{$item['descr']}, {$item['tarif']}</li>";
+        }
+        $html = "<ul>$html</ul>";
         return $html;
     }
+
+    private function unItem() : string {
+        $i = $this->tab[0];
+        $html = "<h2>Item {$i['id']}</h2>";
+        $html .= "<b>Nom:</b> {$i['nom']}<br>";
+        $html .= "<b>Descr:</b> {$i['descr']}<br>";
+        $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
+        return $html;
+    }
+
 
     public function render( int $select ) : string {
 
         switch ($select) {
-            case 1 : {
-                $content = $this->testform();
+            case 1 : { // liste des items
+                $content = $this->lesItems();
                 break;
             }
-            case 2 : {
-                $res = ($this->tab['res'])? 'OK' : 'KO';
-                $content = 'Mot de passe <b>'.$res.'</b>';
+            case 2 : { // un item
+                $content = $this->unItem();
                 break;
             }
 
@@ -48,7 +54,7 @@ FIN;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
+        $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
 
         $html = <<<FIN
 <!DOCTYPE html>
@@ -62,10 +68,10 @@ FIN;
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
+				<li><a href="$url_items">Items</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 				<li><a href="$url_formlogin">Nouveau login</a></li>
 				<li><a href="$url_testform">S'inscrire</a></li>
-				<li><a href="$url_deconnexion">Deconnexion</a></li>
 			</ul>
 		</nav>
     $content

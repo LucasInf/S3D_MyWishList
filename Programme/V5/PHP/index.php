@@ -10,6 +10,9 @@ use \mywishlist\controls\ControlCreationLogin;
 use \mywishlist\controls\ControlAffichageListe;
 use \mywishlist\controls\ControlPartageURL;
 use \mywishlist\controls\ControlConnexionLogin;
+use \mywishlist\controls\ControlSupListe;
+use \mywishlist\controls\ControlModificationListe;
+use \mywishlist\controls\ControlAffichageItem;
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,
@@ -26,6 +29,7 @@ $app = new \Slim\App($container);
 //racine
 $app->get('/'          , ControlAccueil::class.':accueil'       )->setName('racine'    );
 
+
 //liste
 //affichage liste
 $app->get('/listes'    , ControlAffichageListe::class.':afficherListes')->setName('aff_listes');
@@ -35,11 +39,24 @@ $app->get('/liste/{no}', ControlAffichageListe::class.':afficherListe' )->setNam
 $app->get('/nouvelleliste' , ControlCreationListe::class.':formListe'  )->setName('formListe'  );
 $app->post('/nouvelleliste' , ControlCreationListe::class.':newListe'  )->setName('newListe'  );
 
+//Modification liste
+$app->get('/choixmodifyListe' , ControlModificationListe::class.':choixmodifyListe'  )->setName('choixmodifyListe'  );
+$app->post('/modifyListe' , ControlModificationListe::class.':modifyListe'  )->setName('modifyListe'  );
+
 //Partage de la liste
 $app->get('/share/{no}' , ControlPartageURL::class.':share'  )->setName('share'  );
 
+//Supprimer liste
+$app->get('/choixdeleteListe' , ControlSupListe::class.':choixdeleteListe'  )->setName('choixdeleteListe'  );
+$app->post('/deleteListe' , ControlSupListe::class.':deleteListe'  )->setName('deleteListe'  );
+
+
 //item
+//affichage item
+$app->get('/items' , ControlAffichageItem::class.':afficherItems'  )->setName('aff_items'  );
+$app->get('/item/{id}' , ControlAffichageItem::class.':afficherItem'  )->setName('aff_item'  );
 //Creation item
+
 
 //login
 //Creation login

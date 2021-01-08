@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace mywishlist\vue;
 
 
-class VueConnexionLogin
+class VueModificationListe
 {
     private $tab;
     private $container;
@@ -15,14 +15,14 @@ class VueConnexionLogin
 
     }
 
-    //permet de tester le login
-    private function testform() : string {
-        $url_testpass = $this->container->router->pathFor( 'testpass' ) ;
+    private function choixmodifyListe() : string {
+        $url_modifyListe = $this->container->router->pathFor( 'modifyListe' ) ;
         $html = <<<FIN
-<form method="POST" action="$url_testpass">
-	<label>Login:<br> <input type="text" name="login"/></label><br>
-	<label>Mot de passe: <br><input type="text" name="pass"/></label><br>
-	<button type="submit">Tester le login</button>
+<form method="POST" action="$url_modifyListe">
+    <label>Titre:<br> <input type="text" name="nom"/></label><br>
+    <label>Token:<br> <input type="text" name="token"/></label><br>
+    <label>Nouvelle description:<br> <input type="text" name="nouvelledescription"/></label><br>
+    <button type="submit">Modifier la liste</button>
 </form>
 FIN;
         return $html;
@@ -32,15 +32,9 @@ FIN;
 
         switch ($select) {
             case 1 : {
-                $content = $this->testform();
+                $content = $this->choixmodifyListe();
                 break;
             }
-            case 2 : {
-                $res = ($this->tab['res'])? 'OK' : 'KO';
-                $content = 'Mot de passe <b>'.$res.'</b>';
-                break;
-            }
-
         }
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
@@ -49,6 +43,8 @@ FIN;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
         $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
+        $url_choixdeleteListe   = $this->container->router->pathFor( 'choixdeleteListe'               ) ;
+        $url_choixmodifyListe   = $this->container->router->pathFor( 'choixmodifyListe'               ) ;
 
         $html = <<<FIN
 <!DOCTYPE html>
@@ -63,9 +59,12 @@ FIN;
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
-				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">S'inscrire</a></li>
 				<li><a href="$url_deconnexion">Deconnexion</a></li>
+				<li><a href="$url_choixmodifyListe">Modifier une liste</a></li>
+				<li><a href="$url_formlogin">Nouveau login</a></li>
+				<li><a href="$url_testform">S'inscrire</a></li>			
+				<li><a href="$url_deconnexion">Deconnexion</a></li>
+				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 			</ul>
 		</nav>
     $content

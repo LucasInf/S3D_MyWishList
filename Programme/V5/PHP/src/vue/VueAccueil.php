@@ -28,6 +28,9 @@ class VueAccueil {
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
+        $url_choixdeleteListe   = $this->container->router->pathFor( 'choixdeleteListe'               ) ;
+        $url_choixmodifyListe   = $this->container->router->pathFor( 'choixmodifyListe'               ) ;
+        $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
 
 		$html = <<<FIN
 <!DOCTYPE html>
@@ -41,9 +44,12 @@ class VueAccueil {
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
+				<li><a href="$url_items">Items</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
+				<li><a href="$url_choixmodifyListe">Modifier une liste</a></li>
 				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">Test login</a></li>
+				<li><a href="$url_testform">S'inscrire</a></li>
+				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 			</ul>
 		</nav>
     $content

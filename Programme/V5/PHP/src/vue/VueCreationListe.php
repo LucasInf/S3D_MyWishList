@@ -57,7 +57,7 @@ FIN;
 				<li><a href="$url_listes">Listes</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">Test login</a></li>
+				<li><a href="$url_testform">S'inscrire</a></li>
 			</ul>
 		</nav>
     $content

@@ -33,7 +33,10 @@ class ControlCreationListe
         $post = $rq->getParsedBody() ;
         $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
         $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
+        $token = openssl_random_pseudo_bytes(9);
+        $token = bin2hex($token);
         $l = new Liste();
+        $l->token = $token;
         $l->titre = $titre;
         $l->description = $description;
         $l->save();
