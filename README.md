@@ -15,12 +15,12 @@
 6. [x] *Créer une liste* (Veynand Lucas)
 7. [ ] *Modifier les informations générales d'une de ses listes*
 8. [ ] *Ajouter des items*
-9. [ ] *Modifier un item*
-10. [ ] *Supprimer un item*
+9. [x] *Modifier un item* (Boussetta Nael)
+10. [x] *Supprimer un item* (Boussetta Nael)
 11. [ ] *Rajouter une image à un item*
 12. [ ] *Modifier une image d'un item*
 13. [ ] *Supprimer une image d'un item*
-14. [ ] *Partager une liste*
+14. [x] *Partager une liste* (Donadoni Quentin)
 15. [ ] *Consulter les réservations d'une de ses listes avant échéance*
 16. [ ] *Consulter les réservations et messages d'une de ses listes après échéance*
 
