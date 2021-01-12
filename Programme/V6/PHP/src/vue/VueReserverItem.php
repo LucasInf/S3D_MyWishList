@@ -20,7 +20,7 @@ class VueReserverItem
         $html = <<<FIN
     <form method="POST" action="$url_reserverItem">
     <label>Nom participant:<br> <input type="text" name="nomP "/></label><br>
-	<label>Liste ID:<br> <input type="text" name="liste_id"/></label><br>
+	<label>Liste ID:<br> <input type="number" name="liste_id"/></label><br>
 	<label>Id item:<br> <input type="number" name="id "/></label><br>
 	<button type="submit">Reserver item</button>
 </form>
@@ -31,8 +31,8 @@ FIN;
     public function render( int $select ) : string {
 
         switch ($select) {
-            case 1 : {
-                $content = $this->ReserverItem();
+            case 0 : {
+                $content = $this->choixreserverItem();
                 break;
             }
         }

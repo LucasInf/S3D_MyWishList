@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
-use mywishlist\model\Reservation;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use mywishlist\vue\VueReserverItem;
 use \mywishlist\models\Item;
+use \mywishlist\models\Reservation;
 
 class ControlReserverItem
 {
@@ -55,7 +55,7 @@ class ControlReserverItem
       }
 
       public function choixreserverItem(Request $rq, Response $rs, $args): Response{
-          $vue = new VueWish([], $this->container);
+          $vue = new VueReserverItem([], $this->container);
           $rs->getBody()->write($vue->render(0));
           return $rs;
       }
