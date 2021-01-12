@@ -17,6 +17,7 @@ use \mywishlist\controls\ControlCreationItem;
 use \mywishlist\controls\ControlModificationItem;
 use \mywishlist\controls\ControlSupItem;
 use \mywishlist\controls\ControlAjouterMessageListe;
+use \mywishlist\controls\ControlReserverItem;
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,

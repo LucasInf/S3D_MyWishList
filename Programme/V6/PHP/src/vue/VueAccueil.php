@@ -34,6 +34,7 @@ class VueAccueil {
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
         $url_choixmodifyitem   = $this->container->router->pathFor( 'choixmodifyItem'               ) ;
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
+        $url_reservation  = $this->container->router->pathFor( 'choixreserverItem'               ) ;
 
 		$html = <<<FIN
 <!DOCTYPE html>
@@ -56,6 +57,7 @@ class VueAccueil {
 				<li><a href="$url_testform">S'inscrire</a></li>
 				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 				<li><a href="$url_choixdeleteItem">Supprimer un item</a></li>
+				<li><a href="$url_reservation">Reserver un item</a></li>
 			</ul>
 		</nav>
     $content

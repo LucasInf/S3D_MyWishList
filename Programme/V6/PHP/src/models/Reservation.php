@@ -1,6 +1,6 @@
 <?php
 
-namespace mywishlist\model;
+namespace mywishlist\models;
 
 class Reservation extends
     \Illuminate\Database\Eloquent\Model{
