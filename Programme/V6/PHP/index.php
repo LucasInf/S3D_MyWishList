@@ -55,7 +55,7 @@ $app->get('/choixdeleteListe' , ControlSupListe::class.':choixdeleteListe'  )->s
 $app->post('/deleteListe' , ControlSupListe::class.':deleteListe'  )->setName('deleteListe'  );
 
 //Ajouter un message
-$app->get('/ajouterMessageListe/{no}', ControlCreationListe::class.':ajoutMessageliste')->setName('ajoutMessageliste');
+$app->get('/ajouterMessageListe/{no}', ControlAjouterMessageListe::class.':ajoutMessageliste')->setName('ajoutMessageliste');
 $app->post('/ajouterMessageListe/{no}', ControlAjouterMessageListe::class.':newMessage')->setName('newMessage');
 
 

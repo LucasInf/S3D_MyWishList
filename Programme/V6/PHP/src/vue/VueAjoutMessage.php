@@ -16,7 +16,7 @@ class VueAjoutMessage
     }
 
     private function formListe() : string {
-        $url_new_liste = $this->container->router->pathFor( 'newMessage' ) ;
+        $url_new_liste = $this->container->router->pathFor( 'newMessage' , ['no' => $this->tab['no']]) ;
         $html = <<<FIN
 <form method="POST" action="$url_new_liste">
 	<label>Auteur:<br> <input type="text" name="auteur"/></label><br>

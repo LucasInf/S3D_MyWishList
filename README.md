@@ -8,7 +8,7 @@
 2. [ ] *Afficher un item d'une liste*
 3. [ ] *Réserver un item*
 4. [ ] *Ajouter un message avec sa réservation*
-5. [x] *Ajouter un message sur une liste* (Demoulin Eddy)
+5. [x] *Ajouter un message sur une liste* (Demoulin Eddy/Veynand Lucas)
 
 ### Créateur
 

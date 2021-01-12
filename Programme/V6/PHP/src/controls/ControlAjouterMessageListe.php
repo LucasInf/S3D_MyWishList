@@ -20,7 +20,9 @@ class ControlAjouterMessageListe{
 
     //permet de recupere les informations pour creer l'item
     public function ajoutMessageliste(Request $rq, Response $rs, $args) : Response {
+        var_dump($args);
         $liste = Liste::find( $args['no'] ) ;
+        var_dump($liste);
         $vue = new VueAjoutMessage( [ $liste->toArray() ] , $this->container ) ;
         $rs->getBody()->write( $vue->render(  1) ) ;
         return $rs;
