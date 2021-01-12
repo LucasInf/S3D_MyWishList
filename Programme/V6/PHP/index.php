@@ -75,6 +75,8 @@ $app->post('/modifyItem' , ControlModificationItem::class.':modifyItem'  )->setN
 $app->get('/choixdeleteItem' , ControlSupItem::class.':choixdeleteItem'  )->setName('choixdeleteItem'  );
 $app->post('/deleteItem' , ControlSupItem::class.':deleteItem'  )->setName('deleteItem'  );
 
+//Reserver item
+$app->post('/reserverItem' , ControlReserverItem::class.':reserverItem'  )->setName('reserverItem'  );
 
 //login
 //Creation login
