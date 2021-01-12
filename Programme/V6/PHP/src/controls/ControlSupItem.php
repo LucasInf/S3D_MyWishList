@@ -39,7 +39,7 @@ class ControlSupItem
     }
 
     public function choixdeleteItem(Request $rq, Response $rs, $args): Response{
-        $vue = new VueWish([], $this->container);
+        $vue = new VueSupItem([], $this->container);
         $rs->getBody()->write($vue->render(1));
         return $rs;
     }

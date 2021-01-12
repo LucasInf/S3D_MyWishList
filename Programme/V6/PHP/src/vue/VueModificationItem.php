@@ -26,7 +26,7 @@ class VueModificationItem
     <label>Nouveau tarif:<br> <input type="number" name="nouveautarif"/></label><br>
     <button type="submit">Modifier l'Item</button>
     </form>
-    FIN;
+FIN;
         return $html;
     }
 
@@ -62,7 +62,7 @@ class VueModificationItem
 				<li><a href="$url_items">Items</a></li>
 				<li><a href="$url_form_item">Nouveau item</a></li>
 				<li><a href="$url_deconnexion">Deconnexion</a></li>
-				<li><a href="$url_choixmodifyListe">Modifier un item</a></li>
+				<li><a href="$url_choixmodifyItem">Modifier un item</a></li>
 				<li><a href="$url_formlogin">Nouveau login</a></li>
 				<li><a href="$url_testform">S'inscrire</a></li>
 				<li><a href="$url_deconnexion">Deconnexion</a></li>
