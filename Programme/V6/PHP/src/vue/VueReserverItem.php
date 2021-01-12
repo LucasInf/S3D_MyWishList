@@ -19,9 +19,9 @@ class VueReserverItem
         $url_reserverItem = $this->container->router->pathFor('reserverItem');
         $html = <<<FIN
     <form method="POST" action="$url_reserverItem">
-    <label>Nom participant:<br> <input type="text" name="nomP "/></label><br>
+    <label>Nom participant:<br> <input type="text" name="nomP"/></label><br>
 	<label>Liste ID:<br> <input type="number" name="liste_id"/></label><br>
-	<label>Id item:<br> <input type="number" name="id "/></label><br>
+	<label>Id item:<br> <input type="number" name="id"/></label><br>
 	<button type="submit">Reserver item</button>
 </form>
 FIN;
@@ -39,7 +39,7 @@ FIN;
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
-        $url_choixreserveritem = $this->container->router->pathFor( 'choixreserverItem'              ) ;
+        $url_reserveritem = $this->container->router->pathFor( 'choixreserverItem'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
         $url_choixmodifyItem  = $this->container->router->pathFor( 'choixmodifyItem'              ) ;
@@ -56,7 +56,7 @@ FIN;
 		<nav>
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
-				<li><a href="$url_choixreserveritem">Reserver un item</a></li>
+				<li><a href="$url_reserveritem">Reserver un item</a></li>
 				<li><a href="$url_testform">S'inscrire</a></li>
         <li><a href="$url_choixmodifyItem">Modifier l'item</a></li>
 				<li><a href="$url_choixdeleteItem">Supprimer l'item</a></li>
@@ -70,3 +70,4 @@ FIN;
     }
 
 }
+

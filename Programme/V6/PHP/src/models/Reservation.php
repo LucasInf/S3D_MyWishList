@@ -2,15 +2,13 @@
 
 namespace mywishlist\model;
 
-use \Illuminate\Database\Eloquent\Model;
-
-class Reservation
-    extends Model
-{
+class Reservation extends
+    \Illuminate\Database\Eloquent\Model{
     protected $table = 'reservation';
     protected $primaryKey = 'idReservation';
     public $timestamps = false;
-    public $incrementing = false;
 
-    public function item() {return $this->belongsTo('mywishlist\model\Items','idItem','id');}
+    public function item(){
+        return $this->belongsTo('mywishlist\model\Items','idItem','id');
+    }
 }
