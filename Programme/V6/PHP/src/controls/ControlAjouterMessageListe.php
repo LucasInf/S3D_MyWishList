@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
+use mywishlist\vue\VueAjoutMessage;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-use mywishlist\vue\VueCreationListe;
 use \mywishlist\models\Liste;
 
 class ControlAjouterMessageListe{
@@ -16,6 +16,14 @@ class ControlAjouterMessageListe{
     public function __construct($container)
     {
         $this->container = $container;
+    }
+
+    //permet de recupere les informations pour creer l'item
+    public function ajoutMessageliste(Request $rq, Response $rs, $args) : Response {
+        $liste = Liste::find( $args['no'] ) ;
+        $vue = new VueAjoutMessage( [ $liste->toArray() ] , $this->container ) ;
+        $rs->getBody()->write( $vue->render(  1) ) ;
+        return $rs;
     }
 
 

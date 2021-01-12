@@ -46,7 +46,7 @@ class ControlModificationItem
     }
 
     public function choixmodifyItem(Request $rq, Response $rs, $args): Response{
-        $vue = new VueWish([], $this->container);
+        $vue = new VueModificationItem([], $this->container);
         $rs->getBody()->write($vue->render(1));
         return $rs;
     }

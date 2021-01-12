@@ -22,7 +22,7 @@ class ControlCreationItem
     //permet de recupere les informations pour creer l'item
     public function formItem(Request $rq, Response $rs, $args) : Response {
         // pour afficher le formulaire item
-        $vue = new VueWish( [] , $this->container ) ;
+        $vue = new VueCreationItem( [] , $this->container ) ;
         $rs->getBody()->write( $vue->render( 1 ) ) ;
         return $rs;
     }

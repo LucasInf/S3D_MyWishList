@@ -28,9 +28,11 @@ class VueAffichageListe
     private function uneListe() : string {
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['no' => $l['no']] ) ;
+        $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
         $html = "<h2>Liste {$l['no']}</h2>";
         $html .= "<b>Titre:</b> {$l['titre']}<br>";
         $html .= "<b>Description:</b> {$l['description']}<br>";
+        $html .= "<a href='$url_msg'>Ajouter un message</a><br>";
         $html .= "<a href='$url_share'>Partager</a>";
         return $html;
     }
