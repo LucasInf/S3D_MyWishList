@@ -1,3 +1,50 @@
 body{
-  background-color: cyan;
+  background-image: url("genie.png");
+  background-repeat: no-repeat;
 }
+
+strong{
+  color: darkred;
+}
+
+h1 {
+  padding: 1px;
+  border-radius: 0px;
+  margin: 0;
+  font-size: 50px;
+  text-align : center;
+}
+
+nav {
+  height: 30px;
+  background: #3458b7;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-style: double;
+  border-color: goldenrod;
+  border-radius: 10px;
+}
+
+nav a {
+  padding: 0 32px;
+  color: goldenrod;
+  transition: 0.4s;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: yellow;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+
