@@ -91,6 +91,7 @@ $app->get('/testform' , ControlConnexionLogin::class.':testform'  )->setName('te
 $app->post('/testpass' , ControlConnexionLogin::class.':testpass'  )->setName('testpass'  );
 
 //Deconnexion login
-$app->get('/deconnexion' , ControlDeconnexionLogin::class.':deconnexion'  )->setName('deconnexion'  );
+$app->get('/deconnexionVerif' , ControlDeconnexionLogin::class.':deconnexionVerif'  )->setName('deconnexionVerif'  );
+$app->post('/deconnexion' , ControlDeconnexionLogin::class.':deconnexion'  )->setName('deconnexion'  );
 
 $app->run();

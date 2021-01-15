@@ -48,7 +48,7 @@ FIN;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
+        $url_deconnexion   = $this->container->router->pathFor( 'deconnexionVerif'               ) ;
 
         $html = <<<FIN
 <!DOCTYPE html>

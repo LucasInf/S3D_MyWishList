@@ -15,13 +15,39 @@ class VueDeconnexionLogin
 
     }
 
+    //permet de demander la deconnexion
+    private function deconnexion() : string {
+        $url_deconnexion = $this->container->router->pathFor( 'deconnexion' ) ;
+        $html = <<<FIN
+<form method="POST" action="$url_deconnexion">
+	<label>Etes vous sur de vouloir vous deconnecter ?<br> </label><br>
+	<button type="submit">Deconnexion</button>
+</form>
+FIN;
+        return $html;
+    }
+
+    private function deconnecter() : string {
+        $url_deconnexion = $this->container->router->pathFor( 'racine' ) ;
+        $html = <<<FIN
+<form method="GET" action="$url_deconnexion">
+	<label>Vous etes bien deconnecté<br> </label><br>
+	<button type="submit">Retourner à l'accueil</button>
+</form>
+FIN;
+        return $html;
+    }
+
     public function render( int $select ) : string {
 
         switch ($select) {
 
             case 1 : {
-                $url_deconnexion    = $this->container->router->pathFor( 'deconnexion' ) ;
-                $content = "<a href='$url_deconnexion'>Deconnexion</a>";
+                $content = $this->deconnexion();
+                break;
+            }
+            case 2 : {
+                $content = $this->deconnecter();
                 break;
             }
 
@@ -51,7 +77,7 @@ class VueDeconnexionLogin
 				<li><a href="$url_testform">S'inscrire</a></li>
 			</ul>
 		</nav>
-    $content
+$content
   </body>
 </html>
 FIN;

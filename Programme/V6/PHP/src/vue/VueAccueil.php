@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace mywishlist\vue;
+use \mywishlist\models\User;
 
 class VueAccueil {
 
@@ -19,6 +20,11 @@ class VueAccueil {
 		switch ($select) {
 			case 0 : {
 				$content = 'accueil racine du site';
+                session_start();
+                if (isset($_SESSION['iduser'])) {
+                    $nom = User::where('id', '=', $_SESSION['iduser'])->first();
+                    echo '<br>Bonjour '.$nom->login;
+                }
 				break;
 			}
 		}
@@ -40,6 +46,8 @@ class VueAccueil {
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -58,6 +66,7 @@ class VueAccueil {
 				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 				<li><a href="$url_choixdeleteItem">Supprimer un item</a></li>
 				<li><a href="$url_reservation">Reserver un item</a></li>
+				
 			</ul>
 		</nav>
     $content

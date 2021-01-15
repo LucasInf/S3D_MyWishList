@@ -21,10 +21,18 @@ class ControlDeconnexionLogin
     }
 
     //permet de se deconnecter
-    public function deconnexion(Request $rq, Response $rs, $args) : Response {
-        $_SESSION = [];
+    public function deconnexionVerif(Request $rq, Response $rs, $args) : Response {
         $vue = new VueDeconnexionLogin( [] , $this->container ) ;
         $rs->getBody()->write( $vue->render( 1 ) ) ;
+        return $rs;
+    }
+
+    //permet de se deconnecter
+    public function deconnexion(Request $rq, Response $rs, $args) : Response {
+        session_start();
+        session_destroy();
+        $vue = new VueDeconnexionLogin( [] , $this->container ) ;
+        $rs->getBody()->write( $vue->render( 2 ) ) ;
         return $rs;
     }
 
