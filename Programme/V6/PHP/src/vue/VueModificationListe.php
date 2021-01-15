@@ -51,6 +51,7 @@ FIN;
 <html>
   <head>
     <title>Exemple</title>
+    <link rel="stylesheet" href="CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
@@ -62,7 +63,7 @@ FIN;
 				<li><a href="$url_deconnexion">Deconnexion</a></li>
 				<li><a href="$url_choixmodifyListe">Modifier une liste</a></li>
 				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">S'inscrire</a></li>			
+				<li><a href="$url_testform">S'inscrire</a></li>
 				<li><a href="$url_deconnexion">Deconnexion</a></li>
 				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 			</ul>

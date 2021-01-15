@@ -43,6 +43,7 @@ class VuePartageURL
 <html>
   <head>
     <title>Exemple</title>
+    <link rel="stylesheet" href="CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
