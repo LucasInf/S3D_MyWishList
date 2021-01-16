@@ -16,6 +16,7 @@ class VueAjoutMessage
     }
 
     private function formListe() : string {
+        var_dump($this->tab[0]['token']);
         $url_new_liste = $this->container->router->pathFor( 'newMessage' , ['no' => $this->tab['no']]) ;
         $html = <<<FIN
 <form method="POST" action="$url_new_liste">

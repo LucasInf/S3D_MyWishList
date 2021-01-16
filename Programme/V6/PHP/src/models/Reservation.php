@@ -2,8 +2,7 @@
 
 namespace mywishlist\models;
 
-class Reservation extends
-    \Illuminate\Database\Eloquent\Model{
+class Reservation extends \Illuminate\Database\Eloquent\Model{
     protected $table = 'reservation';
     protected $primaryKey = 'idReservation';
     public $timestamps = false;
