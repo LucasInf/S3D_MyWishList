@@ -19,7 +19,7 @@ class VueAffichageItem
         $html = '';
         foreach($this->tab as $item){
             $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
-            $html .= "<li><a href='$url_item'>{$item['nom']}</a>,,{$item['descr']}, {$item['tarif']}</li>";
+            $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}</li>";
         }
         $html = "<ul>$html</ul>";
         return $html;

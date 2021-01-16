@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace mywishlist\vue;
 
+use mywishlist\models\Item;
+
 
 class VueAffichageListe
 {
@@ -29,11 +31,21 @@ class VueAffichageListe
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['no' => $l['no']] ) ;
         $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
+
+        $items = Item::where('liste_id', '=', $l['no'])->get(); ;
+
         $html = "<h2>Liste {$l['no']}</h2>";
         $html .= "<b>Titre:</b> {$l['titre']}<br>";
         $html .= "<b>Description:</b> {$l['description']}<br>";
         $html .= "<a href='$url_msg'>Ajouter un message</a><br>";
         $html .= "<a href='$url_share'>Partager</a>";
+        $html .= "<h3>Items </h3>";
+        foreach($items as $item){
+            $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
+            $url_reserv   = $this->container->router->pathFor( 'choixreserverItem') ;
+            $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
+        }
+        $html = "<ul>$html</ul>";
         return $html;
     }
 
