@@ -28,9 +28,13 @@ class VueAffichageListe
     }
 
     private function uneListe() : string {
+        session_start();
+
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['no' => $l['no']] ) ;
         $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
+
+        $_SESSION['listeReserv'] = $l['no'];
 
         $items = Item::where('liste_id', '=', $l['no'])->get(); ;
 
@@ -40,9 +44,11 @@ class VueAffichageListe
         $html .= "<a href='$url_msg'>Ajouter un message</a><br>";
         $html .= "<a href='$url_share'>Partager</a>";
         $html .= "<h3>Items </h3>";
+
         foreach($items as $item){
             $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
-            $url_reserv   = $this->container->router->pathFor( 'choixreserverItem') ;
+            $url_reserv   = $this->container->router->pathFor( 'choixreserverItem',['id' => $item['id']]) ;
+
             $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
         }
         $html = "<ul>$html</ul>";

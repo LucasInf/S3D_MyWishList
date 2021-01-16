@@ -22,12 +22,17 @@ class ControlReserverItem
     }
 
     public function reserverItem(Request $rq, Response $rs, $args): Response  {
+        session_start();
+
         $post = $rq->getParsedBody() ;
-        $liste_id    = filter_var($post['liste_id']       , FILTER_SANITIZE_NUMBER_INT) ;
-        $id     = filter_var($post['id']       , FILTER_SANITIZE_STRING) ;
+
+        $liste_id    = $_SESSION['listeReserv'];
+        $id     = $_SESSION['itemReserv'];
         $nomP     = filter_var($post['nomP']       , FILTER_SANITIZE_STRING);
-        $token = random_bytes(10);
+
+        $token = random_bytes(100);
         $token = bin2hex($token);
+
         if(!($liste_id==null)){
             $i = Item::where( 'id', '=', $id) ->first() ;
             $Res = Reservation::where( 'idItem', '=', $id) ->first() ;
@@ -36,6 +41,7 @@ class ControlReserverItem
                     $newRes= new Reservation();
                     $newRes->idReservation = $token;
                     $newRes->idItem = $i->id;
+                    $newRes->liste_id = $liste_id;
                     $newRes->nomParticipant= $nomP;
                     $newRes->save();
                     $url_items = $this->container->router->pathFor( 'aff_items' ) ;
@@ -49,10 +55,12 @@ class ControlReserverItem
         }else{
             echo "L'item n'a pas été trouvée car aucun identifiant de liste n'a été donné";
         }
+        return $rs;
     }
 
     public function choixreserverItem(Request $rq, Response $rs, $args): Response{
-        $vue = new VueReserverItem([], $this->container);
+        $item = Item::find( $args['id'] ) ;
+        $vue = new VueReserverItem([$item->toArray()], $this->container);
         $rs->getBody()->write($vue->render(0));
         return $rs;
     }
