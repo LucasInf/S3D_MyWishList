@@ -41,12 +41,13 @@ class VueAccueil {
         $url_choixmodifyitem   = $this->container->router->pathFor( 'choixmodifyItem'               ) ;
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
 
+        if(isset())
 		$html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -60,8 +61,8 @@ class VueAccueil {
 				<li><a href="$url_choixmodifyListe">Modifier une liste</a></li>
 				<li><a href="$url_form_item">Nouvel Item</a></li>
 				<li><a href="$url_choixmodifyitem">Modifier un item</a></li>
-				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">S'inscrire</a></li>
+				<li><a href="$url_formlogin">S'inscrire</a></li>
+				<li><a href="$url_testform">Se connecter</a></li>
 				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 				<li><a href="$url_choixdeleteItem">Supprimer un item</a></li>
 				
