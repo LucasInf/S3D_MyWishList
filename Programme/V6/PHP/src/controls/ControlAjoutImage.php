@@ -27,10 +27,14 @@ class ControlAjoutImage
         if(!($liste_id==null)){
             $i = Item::where( 'nom', 'LIKE', $nom) ->first() ;
             if($i->liste_id==$liste_id){
-                $i->img = $img;
-                $i->update();
-                $url_items = $this->container->router->pathFor( 'aff_items' ) ;
-                return $rs->withRedirect($url_items);
+                if($i->img == null){
+                    $i->img = $img;
+                    $i->update();
+                    $url_items = $this->container->router->pathFor( 'aff_items' ) ;
+                    return $rs->withRedirect($url_items);
+                }else{
+                    echo "L'item a deja une image";
+                }
             }else{
                 echo "L'item n'a pas été trouvé car les informations données ne sont pas valides";
             }
@@ -41,7 +45,11 @@ class ControlAjoutImage
 
     }
 
-
+    public function choixajoutImageItem(Request $rq, Response $rs, $args): Response{
+        $vue = new VueAjoutImage([], $this->container);
+        $rs->getBody()->write($vue->render(1));
+        return $rs;
+    }
 
 }
 
