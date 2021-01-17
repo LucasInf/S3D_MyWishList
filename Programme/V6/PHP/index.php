@@ -18,7 +18,9 @@ use \mywishlist\controls\ControlModificationItem;
 use \mywishlist\controls\ControlSupItem;
 use \mywishlist\controls\ControlAjouterMessageListe;
 use \mywishlist\controls\ControlReserverItem;
-use mywishlist\controls\ControlAjoutImage;
+use \mywishlist\controls\ControlAjoutImage;
+use \mywishlist\controls\ControlModifyImage;
+use \mywishlist\controls\ControlDeleteImage;
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,
@@ -82,12 +84,12 @@ $app->get('/choixajoutImage' , ControlAjoutImage::class.':choixajoutImage'  )->s
 $app->post('/ajoutImage' , ControlAjoutImage::class.':ajoutImage'  )->setName('ajoutImage'  );
 
 //Modification image item
-$app->get('/choixmodifyImage' , ControlSupItem::class.':choixmodifyImage'  )->setName('choixmodifyImage'  );
-$app->post('/modifyImage' , ControlSupItem::class.':modifyImage'  )->setName('modifyImage'  );
+$app->get('/choixmodifyImage' , ControlModifyImage::class.':choixmodifyImage'  )->setName('choixmodifyImage'  );
+$app->post('/modifyImage' , ControlModifyImage::class.':modifyImage'  )->setName('modifyImage'  );
 
 //Suppression image item
-$app->get('/choixdeleteImage' , ControlSupItem::class.':choixdeleteImage'  )->setName('choixdeleteImage'  );
-$app->post('/deleteImage' , ControlSupItem::class.':deleteImage'  )->setName('deleteImage'  );
+$app->get('/choixdeleteImage' , ControlDeleteImage::class.':choixdeleteImage'  )->setName('choixdeleteImage'  );
+$app->post('/deleteImage' , ControlDeleteImage::class.':deleteImage'  )->setName('deleteImage'  );
 
 //Reserver item
 $app->get('/choixreserverItem' , ControlReserverItem::class.':choixreserverItem'  )->setName('choixreserverItem'  );
