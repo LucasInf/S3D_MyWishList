@@ -24,7 +24,7 @@ $config = ['settings' => [
 ]];
 
 $db = new \Illuminate\Database\Capsule\Manager();
-$db->addConnection(parse_ini_file('src/conf/conf.ini')); //$db->addConnection(parse_ini_file('../../../conf.ini')); webetu
+$db->addConnection(parse_ini_file('../../../conf.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
 
@@ -76,8 +76,20 @@ $app->post('/modifyItem' , ControlModificationItem::class.':modifyItem'  )->setN
 $app->get('/choixdeleteItem' , ControlSupItem::class.':choixdeleteItem'  )->setName('choixdeleteItem'  );
 $app->post('/deleteItem' , ControlSupItem::class.':deleteItem'  )->setName('deleteItem'  );
 
+//Ajout image item
+$app->get('/choixajoutImage' , ControlSupItem::class.':choixajoutImage'  )->setName('choixajoutImage'  );
+$app->post('/ajoutImage' , ControlSupItem::class.':ajoutImage'  )->setName('ajoutImage'  );
+
+//Modification image item
+$app->get('/choixmodifyImage' , ControlSupItem::class.':choixmodifyImage'  )->setName('choixmodifyImage'  );
+$app->post('/modifyImage' , ControlSupItem::class.':modifyImage'  )->setName('modifyImage'  );
+
+//Suppression image item
+$app->get('/choixdeleteImage' , ControlSupItem::class.':choixdeleteImage'  )->setName('choixdeleteImage'  );
+$app->post('/deleteImage' , ControlSupItem::class.':deleteImage'  )->setName('deleteImage'  );
+
 //Reserver item
-$app->get('/choixreserverItem/{id}' , ControlReserverItem::class.':choixreserverItem'  )->setName('choixreserverItem'  );
+$app->get('/choixreserverItem' , ControlReserverItem::class.':choixreserverItem'  )->setName('choixreserverItem'  );
 $app->post('/reserverItem' , ControlReserverItem::class.':reserverItem'  )->setName('reserverItem'  );
 
 
@@ -91,7 +103,6 @@ $app->get('/testform' , ControlConnexionLogin::class.':testform'  )->setName('te
 $app->post('/testpass' , ControlConnexionLogin::class.':testpass'  )->setName('testpass'  );
 
 //Deconnexion login
-$app->get('/deconnexionVerif' , ControlDeconnexionLogin::class.':deconnexionVerif'  )->setName('deconnexionVerif'  );
-$app->post('/deconnexion' , ControlDeconnexionLogin::class.':deconnexion'  )->setName('deconnexion'  );
+$app->get('/deconnexion' , ControlDeconnexionLogin::class.':deconnexion'  )->setName('deconnexion'  );
 
 $app->run();
