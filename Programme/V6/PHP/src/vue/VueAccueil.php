@@ -41,8 +41,8 @@ class VueAccueil {
         $url_choixmodifyitem   = $this->container->router->pathFor( 'choixmodifyItem'               ) ;
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
 
-
-		$html = <<<FIN
+if(isset($_SESSION['login'])){
+    $html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
@@ -61,8 +61,6 @@ class VueAccueil {
 				<li><a href="$url_choixmodifyListe">Modifier une liste</a></li>
 				<li><a href="$url_form_item">Nouvel Item</a></li>
 				<li><a href="$url_choixmodifyitem">Modifier un item</a></li>
-				<li><a href="$url_formlogin">S'inscrire</a></li>
-				<li><a href="$url_testform">Se connecter</a></li>
 				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 				<li><a href="$url_choixdeleteItem">Supprimer un item</a></li>
 				
@@ -72,6 +70,30 @@ class VueAccueil {
   </body>
 </html>
 FIN;
+}else{
+    $html = <<<FIN
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../CSS/design.css" />
+    <title>Exemple</title>
+  </head>
+  <body>
+		<h1><a href="$url_accueil">Wish List</a></h1>
+		<nav>
+			<ul>
+				<li><a href="$url_formlogin">S'inscrire</a></li>
+				<li><a href="$url_testform">Se connecter</a></li>
+				
+			</ul>
+		</nav>
+    $content
+  </body>
+</html>
+FIN;
+}
+
 		return $html;
 	}
 }
