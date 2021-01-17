@@ -16,11 +16,13 @@ class VueModificationListe
     }
 
     private function choixmodifyListe() : string {
+        $l = $this->tab[0];
         $url_modifyListe = $this->container->router->pathFor( 'modifyListe' ) ;
+        session_start();
         $html = <<<FIN
 <form method="POST" action="$url_modifyListe">
-    <label>Titre:<br> <input type="text" name="nom"/></label><br>
-    <label>Token:<br> <input type="text" name="token"/></label><br>
+    <label>Titre:<br> {$_SESSION['titre']}</label><br>
+    <label>Token:<br> {$_SESSION['token']}</label><br>
     <label>Nouvelle description:<br> <input type="text" name="nouvelledescription"/></label><br>
     <button type="submit">Modifier la liste</button>
 </form>
