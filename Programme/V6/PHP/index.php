@@ -80,8 +80,8 @@ $app->get('/choixdeleteItem' , ControlSupItem::class.':choixdeleteItem'  )->setN
 $app->post('/deleteItem' , ControlSupItem::class.':deleteItem'  )->setName('deleteItem'  );
 
 //Ajout image item
-$app->get('/choixajoutImage' , ControlAjoutImage::class.':choixajoutImage'  )->setName('choixajoutImage'  );
-$app->post('/ajoutImage' , ControlAjoutImage::class.':ajoutImage'  )->setName('ajoutImage'  );
+$app->get('/choixajoutImage' , ControlAjoutImage::class.':choixajoutImageItem'  )->setName('choixajoutImage'  );
+$app->post('/ajoutImage' , ControlAjoutImage::class.':AjoutImageItem'  )->setName('ajoutImage'  );
 
 //Modification image item
 $app->get('/choixmodifyImage' , ControlModifyImage::class.':choixmodifyImage'  )->setName('choixmodifyImage'  );
