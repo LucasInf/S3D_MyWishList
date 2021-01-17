@@ -41,7 +41,7 @@ class VueAccueil {
         $url_choixmodifyitem   = $this->container->router->pathFor( 'choixmodifyItem'               ) ;
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
 
-        if(isset())
+
 		$html = <<<FIN
 <!DOCTYPE html>
 <html>

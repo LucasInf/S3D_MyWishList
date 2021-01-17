@@ -18,13 +18,14 @@ use \mywishlist\controls\ControlModificationItem;
 use \mywishlist\controls\ControlSupItem;
 use \mywishlist\controls\ControlAjouterMessageListe;
 use \mywishlist\controls\ControlReserverItem;
+use mywishlist\controls\ControlAjoutImage;
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,
 ]];
 
 $db = new \Illuminate\Database\Capsule\Manager();
-$db->addConnection(parse_ini_file('../../../conf.ini'));
+$db->addConnection(parse_ini_file('src/conf/conf.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
 
@@ -77,8 +78,8 @@ $app->get('/choixdeleteItem' , ControlSupItem::class.':choixdeleteItem'  )->setN
 $app->post('/deleteItem' , ControlSupItem::class.':deleteItem'  )->setName('deleteItem'  );
 
 //Ajout image item
-$app->get('/choixajoutImage' , ControlSupItem::class.':choixajoutImage'  )->setName('choixajoutImage'  );
-$app->post('/ajoutImage' , ControlSupItem::class.':ajoutImage'  )->setName('ajoutImage'  );
+$app->get('/choixajoutImage' , ControlAjoutImage::class.':choixajoutImage'  )->setName('choixajoutImage'  );
+$app->post('/ajoutImage' , ControlAjoutImage::class.':ajoutImage'  )->setName('ajoutImage'  );
 
 //Modification image item
 $app->get('/choixmodifyImage' , ControlSupItem::class.':choixmodifyImage'  )->setName('choixmodifyImage'  );
