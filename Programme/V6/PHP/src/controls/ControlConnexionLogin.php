@@ -28,7 +28,6 @@ class ControlConnexionLogin
 
         $vue = new VueConnexionLogin( [] , $this->container ) ;
         $rs->getBody()->write( $vue->render( 1 ) ) ;
-        var_dump($_SESSION['iduser']);
         return $rs;
     }
 
@@ -42,7 +41,7 @@ class ControlConnexionLogin
         $u = User::where('login','=',$login)->first();
         $res = password_verify($pass,$u->pass);
 
-        if ($res) $_SESSION['iduser'] = $u->id;
+        if ($res) $_SESSION['login'] = $u->id;
         $vue = new VueConnexionLogin( [ 'res' => $res ] , $this->container ) ;
         $rs->getBody()->write( $vue->render( 2 ) ) ;
         return $rs;

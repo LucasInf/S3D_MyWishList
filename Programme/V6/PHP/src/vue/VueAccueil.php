@@ -40,6 +40,7 @@ class VueAccueil {
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
         $url_choixmodifyitem   = $this->container->router->pathFor( 'choixmodifyItem'               ) ;
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
+        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
 
 if(isset($_SESSION['login'])){
     $html = <<<FIN
@@ -63,6 +64,7 @@ if(isset($_SESSION['login'])){
 				<li><a href="$url_choixmodifyitem">Modifier un item</a></li>
 				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
 				<li><a href="$url_choixdeleteItem">Supprimer un item</a></li>
+				<li><a href="$url_deconnexion">Deconnexion</a></li>
 				
 			</ul>
 		</nav>

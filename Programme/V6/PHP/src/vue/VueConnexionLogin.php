@@ -51,8 +51,27 @@ FIN;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
         $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
-
-        $html = <<<FIN
+        if(isset($_SESSION['login'])) {
+            $html = <<<FIN
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemple</title>
+    <link rel="stylesheet" href="../CSS/design.css" />
+  </head>
+  <body>
+		<h1><a href="$url_accueil">Wish List</a></h1>
+		<nav>
+			<ul>
+				<li><a href="$url_accueil">Accueil</a></li>
+			</ul>
+		</nav>
+    $content
+  </body>
+</html>
+FIN;
+        }else{
+            $html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
@@ -75,6 +94,7 @@ FIN;
   </body>
 </html>
 FIN;
+        }
         return $html;
     }
 
