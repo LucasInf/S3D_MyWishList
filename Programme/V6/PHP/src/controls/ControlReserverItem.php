@@ -44,7 +44,7 @@ class ControlReserverItem
                     $newRes->liste_id = $liste_id;
                     $newRes->nomParticipant= $nomP;
                     $newRes->save();
-                    $url_items = $this->container->router->pathFor( 'aff_items' ) ;
+                    $url_items = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
                     return $rs->withRedirect($url_items);
                 }else{
                     echo "L'item est déja réservé";

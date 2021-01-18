@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
+use mywishlist\vue\VueDeleteImage;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 

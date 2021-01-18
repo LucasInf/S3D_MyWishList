@@ -42,18 +42,16 @@ FIN;
         }
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
-        $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
-        $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
+
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_choixmodifyItem  = $this->container->router->pathFor( 'choixmodifyItem'              ) ;
-        $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
+
 
         $html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
     <title>Exemple</title>
-    <link rel="stylesheet" href="CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
@@ -61,8 +59,6 @@ FIN;
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_testform">S'inscrire</a></li>
-        <li><a href="$url_choixmodifyItem">Modifier l'item</a></li>
-				<li><a href="$url_choixdeleteItem">Supprimer l'item</a></li>
 			</ul>
 		</nav>
     $content

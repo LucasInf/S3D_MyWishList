@@ -30,8 +30,9 @@ class ControlCreationItem
     //creer un item
     public function newItem(Request $rq, Response $rs, $args) : Response {
         // pour enregistrer 1 item.....
+        session_start();
         $post = $rq->getParsedBody() ;
-        $liste_id    = filter_var($post['liste_id']       , FILTER_SANITIZE_NUMBER_INT) ;
+        $liste_id    = $_SESSION['no'] ;
         $nom     = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
         $descr = filter_var($post['descr'] , FILTER_SANITIZE_STRING) ;
         $tarif = filter_var($post['tarif'] , FILTER_SANITIZE_NUMBER_INT) ;
@@ -42,7 +43,7 @@ class ControlCreationItem
         $l->tarif = $tarif;
         $l->save();
 
-        $url_items = $this->container->router->pathFor( 'aff_items' ) ;
+        $url_items = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
         return $rs->withRedirect($url_items);
 
     }

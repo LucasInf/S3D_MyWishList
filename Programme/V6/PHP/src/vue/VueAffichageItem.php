@@ -27,10 +27,17 @@ class VueAffichageItem
 
     private function unItem() : string {
         $i = $this->tab[0];
+
+        $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem',    ['id' => $i['id']]         ) ;
+
         $html = "<h2>Item {$i['id']}</h2>";
         $html .= "<b>Nom:</b> {$i['nom']}<br>";
         $html .= "<b>Descr:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
+
+        $html .= "<a href='$url_choixdeleteItem'>Supprimer</a><br>";
+
+
         return $html;
     }
 
@@ -51,17 +58,13 @@ class VueAffichageItem
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
-        $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
-        $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
-        $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
 
         $html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
     <title>Exemple</title>
-    <link rel="stylesheet" href="CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
@@ -69,10 +72,6 @@ class VueAffichageItem
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_items">Items</a></li>
-				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
-				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">S'inscrire</a></li>
 			</ul>
 		</nav>
     $content

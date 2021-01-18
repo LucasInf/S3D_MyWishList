@@ -34,12 +34,7 @@ class VueAccueil {
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_choixdeleteListe   = $this->container->router->pathFor( 'choixdeleteListe'               ) ;
-        $url_choixmodifyListe   = $this->container->router->pathFor( 'choixmodifyListe'               ) ;
         $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
-        $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
-        $url_choixmodifyitem   = $this->container->router->pathFor( 'choixmodifyItem'               ) ;
-        $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem'               ) ;
         $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
 
 if(isset($_SESSION['login'])){
@@ -48,7 +43,7 @@ if(isset($_SESSION['login'])){
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -57,13 +52,7 @@ if(isset($_SESSION['login'])){
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_items">Items</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
-				<li><a href="$url_choixmodifyListe">Modifier une liste</a></li>
-				<li><a href="$url_form_item">Nouvel Item</a></li>
-				<li><a href="$url_choixmodifyitem">Modifier un item</a></li>
-				<li><a href="$url_choixdeleteListe">Supprimer une liste</a></li>
-				<li><a href="$url_choixdeleteItem">Supprimer un item</a></li>
 				<li><a href="$url_deconnexion">Deconnexion</a></li>
 				
 			</ul>
@@ -78,7 +67,7 @@ FIN;
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>

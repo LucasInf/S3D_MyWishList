@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
+use mywishlist\vue\VueAffichageListes;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -22,7 +23,7 @@ class ControlAffichageListe
     public function afficherListes(Request $rq, Response $rs, $args) : Response {
         // pour afficher la liste des listes de souhaits
         $listl = Liste::all() ;
-        $vue = new VueAffichageListe( $listl->toArray() , $this->container ) ;
+        $vue = new VueAffichageListes( $listl->toArray() , $this->container ) ;
         $rs->getBody()->write( $vue->render( 1 ) ) ;
         return $rs;
     }

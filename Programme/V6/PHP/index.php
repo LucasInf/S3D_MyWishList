@@ -76,7 +76,7 @@ $app->get('/choixmodifyItem' , ControlModificationItem::class.':choixmodifyItem'
 $app->post('/modifyItem' , ControlModificationItem::class.':modifyItem'  )->setName('modifyItem'  );
 
 //Supprimer item
-$app->get('/choixdeleteItem' , ControlSupItem::class.':choixdeleteItem'  )->setName('choixdeleteItem'  );
+$app->get('/choixdeleteItem/{id}' , ControlSupItem::class.':choixdeleteItem'  )->setName('choixdeleteItem'  );
 $app->post('/deleteItem' , ControlSupItem::class.':deleteItem'  )->setName('deleteItem'  );
 
 //Ajout image item
@@ -92,7 +92,7 @@ $app->get('/choixdeleteImage' , ControlDeleteImage::class.':choixdeleteImage'  )
 $app->post('/deleteImage' , ControlDeleteImage::class.':deleteImage'  )->setName('deleteImage'  );
 
 //Reserver item
-$app->get('/choixreserverItem' , ControlReserverItem::class.':choixreserverItem'  )->setName('choixreserverItem'  );
+$app->get('/choixreserverItem/{id}' , ControlReserverItem::class.':choixreserverItem'  )->setName('choixreserverItem'  );
 $app->post('/reserverItem' , ControlReserverItem::class.':reserverItem'  )->setName('reserverItem'  );
 
 
