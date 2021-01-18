@@ -20,7 +20,8 @@ class ControlModificationListe
     }
 
     public function choixmodifyListe(Request $rq, Response $rs, $args): Response{
-        $vue = new VueModificationListe([], $this->container);
+        $liste = Liste::where( 'token','=',$args['token'] )->first();
+        $vue = new VueModificationListe([$liste->toArray()], $this->container);
         $rs->getBody()->write($vue->render(1));
         return $rs;
     }
@@ -30,13 +31,17 @@ class ControlModificationListe
 
         $post = $rq->getParsedBody() ;
         $token = $_SESSION['token'];
-        $titre = $_SESSION['titre'];
+        $no = $_SESSION['no'];
         if(!($token=='')){
-            $i = Liste::where( 'titre', 'LIKE', $titre)->first() ;
+            $i = Liste::where( 'no', '=', $no)->first() ;
             if($i->token==$token){
-                $newD = filter_var($_POST['nouvelledescription'],FILTER_SANITIZE_STRING);
+                $newT = filter_var($post['nouveautitre'],FILTER_SANITIZE_STRING);
+                $newD = filter_var($post['nouvelledescription'],FILTER_SANITIZE_STRING);
+                $i->titre = $newT;
                 $i->description = $newD;
                 $i->update();
+                $url_liste = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+                return $rs->withRedirect($url_liste);
             }else{
                 echo "La liste n'a pas été trouvée car les informations données ne sont pas valides";
             }
@@ -44,8 +49,8 @@ class ControlModificationListe
         }else{
             echo "La liste n'a pas été trouvée car aucun token n'a été donné";
         }
-        $url_listes = $this->container->router->pathFor( 'aff_listes' ) ;
-        $rs->withRedirect($url_listes);
+        $url_liste = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+        $rs->withRedirect($url_liste);
         return $rs;
     }
 
