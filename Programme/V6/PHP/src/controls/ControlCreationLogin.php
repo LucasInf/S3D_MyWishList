@@ -38,7 +38,6 @@ class ControlCreationLogin
         $u2 = User::where('login', '=', $login)->first();
         if ($u2 == null) {
             $_SESSION['login']=filter_var($post['login'], FILTER_SANITIZE_STRING);
-            $_SESSION['pass'] = filter_var($post['pass'], FILTER_SANITIZE_STRING);
             $u = new User();
             $u->login = $login;
             $u->pass = password_hash($pass, PASSWORD_DEFAULT);

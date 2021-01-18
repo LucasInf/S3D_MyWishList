@@ -28,18 +28,7 @@ FIN;
         return $html;
     }
 
-    //permet de tester le login
-    private function Connexion() : string {
-        $url_testpass = $this->container->router->pathFor( 'testpass' ) ;
-        $html = <<<FIN
-<form method="POST" action="$url_testpass">
-	<label>Login:<br> <input type="text" name="login"/></label><br>
-	<label>Mot de passe: <br><input type="text" name="pass"/></label><br>
-	<button type="submit">Tester le login</button>
-</form>
-FIN;
-        return $html;
-    }
+
 
     public function render( int $select ) : string {
 
@@ -61,7 +50,7 @@ FIN;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexionVerif'               ) ;
+        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
 
         $html = <<<FIN
 <!DOCTYPE html>
