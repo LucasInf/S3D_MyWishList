@@ -1,6 +1,8 @@
 body{
-  background-image: url("genie.png");
-  background-repeat: no-repeat;
+    background-image: url("genie.png");
+    background-repeat: no-repeat;
+    background-color: grey;
+    background-position:100% -20%;
 }
 
 strong{
@@ -15,7 +17,9 @@ h1 {
     text-align : center;
     text-decoration: underline overline darkgoldenrod;
 }
-
+li{
+    color:antiquewhite;
+}
 a{
     color: goldenrod;
 }
