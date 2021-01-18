@@ -48,7 +48,7 @@ $app->get('/nouvelleliste' , ControlCreationListe::class.':formListe'  )->setNam
 $app->post('/nouvelleliste' , ControlCreationListe::class.':newListe'  )->setName('newListe'  );
 
 //Modification liste
-$app->get('/choixmodifyListe' , ControlModificationListe::class.':choixmodifyListe'  )->setName('choixmodifyListe'  );
+$app->get('/choixmodifyListe/{token}' , ControlModificationListe::class.':choixmodifyListe'  )->setName('choixmodifyListe'  );
 $app->post('/modifyListe' , ControlModificationListe::class.':modifyListe'  )->setName('modifyListe'  );
 
 //Partage de la liste

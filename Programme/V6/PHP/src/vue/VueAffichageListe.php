@@ -24,7 +24,7 @@ class VueAffichageListe
         $url_share = $this->container->router->pathFor( 'share', ['no' => $l['no']] ) ;
         $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
         $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe', ['no' => $l['no']] ) ;
-        $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['no' => $l['no']] ) ;
+        $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['token' => $l['token']] ) ;
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
 
         $_SESSION['listeReserv'] = $l['no'];
