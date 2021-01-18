@@ -85,8 +85,8 @@ FIN;
 		<h1><a href="$url_accueil">Wish List</a></h1>
 		<nav>
 			<ul>
-			    <li><a href="$url_form_liste">Nouvelle Liste</a></li>
-			    <li><a href="$url_form_item">Nouvel Item</a></li>
+			    <li><a href="$url_listes">Listes</a></li>
+				<li><a href="$url_items">Items</a></li>
 				<li><a href="$url_formlogin">S'inscrire</a></li>
 				<li><a href="$url_testform">Se connecter</a></li>
 				
