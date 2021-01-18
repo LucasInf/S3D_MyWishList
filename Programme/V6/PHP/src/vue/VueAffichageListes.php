@@ -21,6 +21,7 @@ class VueAffichageListes
     private function lesListes(): string
     {
         $html = '';
+        $html .= "<h2>Les Wish Listes :</h2>";
         foreach ($this->tab as $liste) {
             $url_liste = $this->container->router->pathFor('aff_liste', ['token' => $liste['token']]);
             $html .= "<li><a href='$url_liste'>{$liste['titre']}</a>, {$liste['description']}</li>";
@@ -42,7 +43,6 @@ class VueAffichageListes
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
-        $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 
 
         $html = <<<FIN
@@ -58,7 +58,6 @@ class VueAffichageListes
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 			</ul>
 		</nav>
     $content

@@ -34,7 +34,6 @@ class VueAccueil {
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_items     = $this->container->router->pathFor( 'aff_items'             ) ;
         $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
 
 if(isset($_SESSION['login'])){
@@ -75,7 +74,6 @@ FIN;
 		<nav>
 			<ul>
 			    <li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_items">Items</a></li>
 				<li><a href="$url_formlogin">S'inscrire</a></li>
 				<li><a href="$url_testform">Se connecter</a></li>
 				

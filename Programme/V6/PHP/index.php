@@ -55,7 +55,7 @@ $app->post('/modifyListe' , ControlModificationListe::class.':modifyListe'  )->s
 $app->get('/share/{token}' , ControlPartageURL::class.':share'  )->setName('share'  );
 
 //Supprimer liste
-$app->get('/choixdeleteListe' , ControlSupListe::class.':choixdeleteListe'  )->setName('choixdeleteListe'  );
+$app->get('/choixdeleteListe/{token}' , ControlSupListe::class.':choixdeleteListe'  )->setName('choixdeleteListe'  );
 $app->post('/deleteListe' , ControlSupListe::class.':deleteListe'  )->setName('deleteListe'  );
 
 //Ajouter un message

@@ -20,7 +20,7 @@ class VueCreationItem
             $url_new_item = $this->container->router->pathFor('newItem');
             $html = <<<FIN
     <form method="POST" action="$url_new_item">
-    <h2>Ajout d'un iteme dans la liste {$_SESSION['no']}</h2>
+    <h2>Ajout d'un item dans la liste {$_SESSION['no']}</h2>
     <label>Nom:<br> <input type="text" name="nom"/></label><br>
 	<label>Description:<br> <input type="text" name="descr"/></label><br>
 	<label>Tarif: <br><input type="number" name="tarif"/></label><br>

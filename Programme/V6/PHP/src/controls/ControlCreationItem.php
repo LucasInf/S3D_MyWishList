@@ -43,7 +43,7 @@ class ControlCreationItem
         $l->tarif = $tarif;
         $l->save();
 
-        $url_items = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+        $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
         return $rs->withRedirect($url_items);
 
     }

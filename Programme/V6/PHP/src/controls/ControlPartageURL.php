@@ -21,9 +21,10 @@ class ControlPartageURL
     }
 
     public function share(Request $rq, Response $rs, $args) : Response {
-        $liste = Liste::where('token','=',$args['token'])->first() ;
-        $vue = new VuePartageURL( [ $liste->toArray() ] , $this->container ) ;
-        $rs->getBody()->write( $vue->render(  1) ) ;
-        return $rs;
+        session_start();
+        $_SESSION['PartageURL']=$this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
+
+        $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
+        return $rs->withRedirect($url_items);
     }
 }

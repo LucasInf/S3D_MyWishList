@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace mywishlist\vue;
 
 use mywishlist\models\Item;
-use mywishlist\models\Liste;
 
 
 class VueAffichageListe
@@ -24,7 +23,7 @@ class VueAffichageListe
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['token' => $l['token']] ) ;
         $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
-        $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe', ['no' => $l['no']] ) ;
+        $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe', ['token' => $_SESSION['token']] ) ;
         $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['token' => $l['token']] ) ;
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
 
@@ -36,23 +35,24 @@ class VueAffichageListe
 
         $_SESSION['titre'] = $l['titre'];
 
-        $items = Item::where('liste_id', '=', $l['no'])->get();
-        $liste= Liste::where('no','=',$l['no'])->first();
+        $items = Item::where('liste_id', '=', $l['no'])->get(); ;
 
-        $html = "<h2>Liste {$l['no']}</h2>";
-        $html .= "<b>Titre:</b> {$l['titre']}<br>";
+        $html = "<h2>LISTE : {$l['titre']}</h2>";
         $html .= "<b>Description:</b> {$l['description']}<br>";
+        $html .= "<b>Date d'expiration:</b> {$l['expiration']}<br>";
+
+        $html .= "<a href='$url_msg'>Ajouter un message à la liste</a><br>";
+        $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a><br>";
+        $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
 
 
-        if($liste['user_id']==$_SESSION['login']){
-            $html .= "<a href='$url_msg'>Ajouter un message à la liste</a><br>";
-            $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a><br>";
-            $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
+        if (isset($_SESSION['PartageURL'])){
+            $html .= "{$_SESSION['PartageURL']}<br>";
+            unset($_SESSION['PartageURL']);
+        }else{
+            $html .= "<a href='$url_share'>Partager</a><br>";
         }
-
-        $html .= "<a href='$url_share'>Partager</a><br>";
         $html .= "<h3>Items </h3>";
-
 
         foreach($items as $item){
             $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
@@ -60,9 +60,8 @@ class VueAffichageListe
 
             $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
         }
-        if($liste['user_id']==$_SESSION['login']) {
-            $html .= "<a href='$url_form_item'>Ajouter un item</a><br><br>";
-        }
+        $html .= "<a href='$url_form_item'>Ajouter un item</a><br><br>";
+
         $html = "<ul>$html</ul>";
         return $html;
     }
@@ -80,9 +79,6 @@ class VueAffichageListe
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
-        $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
-        $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
-        $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
 
         $html = <<<FIN
 <!DOCTYPE html>
@@ -97,7 +93,6 @@ class VueAffichageListe
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 			</ul>
 		</nav>
     $content

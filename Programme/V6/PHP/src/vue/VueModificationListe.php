@@ -16,7 +16,6 @@ class VueModificationListe
     }
 
     private function choixmodifyListe() : string {
-        $l = $this->tab[0];
 
         $url_modifyListe = $this->container->router->pathFor( 'modifyListe' ) ;
         session_start();

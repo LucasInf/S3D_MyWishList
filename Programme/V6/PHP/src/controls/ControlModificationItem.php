@@ -28,13 +28,19 @@ class ControlModificationItem
             $i = Item::where( 'id', '=', $id) ->first() ;
             if($i->liste_id==$liste_id){
                 $newN = filter_var($post['nouveaunom'],FILTER_SANITIZE_STRING);
+                var_dump($newN);
                 $newD = filter_var($post['nouveaudescr'],FILTER_SANITIZE_STRING);
+                var_dump($newD);
                 $newT = filter_var($post['nouveautarif'],FILTER_SANITIZE_STRING);
+                var_dump($newT);
+                if ($newN == "") $newN =$i['nom'];
+                if ($newD == "") $newD =$i['descr'];
+                if ($newT == "") $newT =$i['tarif'];
                 $i->nom = $newN;
                 $i->descr = $newD;
                 $i->tarif = $newT;
                 $i->update();
-                $url_items = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+                $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
                 return $rs->withRedirect($url_items);
             }else{
                 echo "L'item n'a pas été trouvée car les informations données ne sont pas valides";

@@ -25,7 +25,7 @@ class VueSupItem
 
         $html = <<<FIN
 <form method="POST" action="$url_deleteItem">
-    <label>Etes vous sur de vouloir supprimer l'item {$_SESSION['itemSup']} ? </label><br>
+    <h2>Supprimer l'item : {$i['nom']} ? </h2>
     <button type="submit">Supprimer l'Item</button>
 </form>
 FIN;

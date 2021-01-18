@@ -24,7 +24,7 @@ class VueModificationItem
         $url_modifyItem = $this->container->router->pathFor( 'modifyItem' ) ;
         $html = <<<FIN
     <form method="POST" action="$url_modifyItem">
-    <h2>Vous allez modifier l'item {$_SESSION['itemModif']} </h2>
+    <h2>Modifier l'item : {$i['nom']} ? </h2>
     <label>Nouveau Nom:<br> <input type="text" name="nouveaunom"/></label><br>
     <label>Nouvelle description:<br> <input type="text" name="nouveaudescr"/></label><br>
     <label>Nouveau tarif:<br> <input type="number" name="nouveautarif"/></label><br>

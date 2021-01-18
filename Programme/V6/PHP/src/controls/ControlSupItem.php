@@ -27,7 +27,7 @@ class ControlSupItem
         if(!($liste_id==null)){
             $i = Item::where( 'id', '=', $id) ->first() ;
             if($i->liste_id==$liste_id){        $i->delete();
-                $url_liste = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+                $url_liste = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
                 return $rs->withRedirect($url_liste);
             }else{
                 echo "L'item n'a pas été trouvée car les informations données ne sont pas valides";

@@ -20,8 +20,7 @@ class ControlModificationListe
     }
 
     public function choixmodifyListe(Request $rq, Response $rs, $args): Response{
-        $liste = Liste::where( 'token','=',$args['token'] )->first();
-        $vue = new VueModificationListe([$liste->toArray()], $this->container);
+        $vue = new VueModificationListe([], $this->container);
         $rs->getBody()->write($vue->render(1));
         return $rs;
     }
@@ -37,6 +36,8 @@ class ControlModificationListe
             if($i->token==$token){
                 $newT = filter_var($post['nouveautitre'],FILTER_SANITIZE_STRING);
                 $newD = filter_var($post['nouvelledescription'],FILTER_SANITIZE_STRING);
+                if ($newT == "") $newT =$i['titre'];
+                if ($newD == "") $newD =$i['description'];
                 $i->titre = $newT;
                 $i->description = $newD;
                 $i->update();

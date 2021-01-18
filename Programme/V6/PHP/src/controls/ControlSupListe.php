@@ -23,15 +23,14 @@ class ControlSupListe
     {
         session_start();
 
-        $post = $rq->getParsedBody();
         $token = $_SESSION['token'];
         $titre = $_SESSION['no'];
         if (!($token == '')) {
             $i = Liste::where('no', '=', $titre)->first();
             if ($i->token == $token) {
                 $i->delete();
-                $url_listes = $this->container->router->pathFor('aff_listes');
-                $rs->withRedirect($url_listes);
+                $url_liste = $this->container->router->pathFor('aff_listes');
+                return $rs->withRedirect($url_liste);
             } else {
                 echo "La liste n'a pas été trouvée car les informations données ne sont pas valides";
             }
