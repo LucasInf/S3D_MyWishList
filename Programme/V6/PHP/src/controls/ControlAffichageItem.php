@@ -19,12 +19,7 @@ class ControlAffichageItem
         $this->container = $container;
     }
 
-    public function afficherItems(Request $rq, Response $rs, $args) : Response {
-        $items = Item::all() ;
-        $vue = new VueAffichageItem( $items->toArray() , $this->container ) ;
-        $rs->getBody()->write( $vue->render( 1 ) ) ;
-        return $rs;
-    }
+
 
     public function afficherItem(Request $rq, Response $rs, $args) : Response {
         $item = Item::find( $args['id'] ) ;

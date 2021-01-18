@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 namespace mywishlist\vue;
-
+use mywishlist\models\Liste;
 
 class VueAffichageItem
 {
@@ -15,17 +15,9 @@ class VueAffichageItem
 
     }
 
-    private function lesItems() : string {
-        $html = '';
-        foreach($this->tab as $item){
-            $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
-            $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}</li>";
-        }
-        $html = "<ul>$html</ul>";
-        return $html;
-    }
 
     private function unItem() : string {
+        session_start();
         $i = $this->tab[0];
 
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem',    ['id' => $i['id']]         ) ;
@@ -35,9 +27,11 @@ class VueAffichageItem
         $html .= "<p><img src={$i['img']}></p>";
         $html .= "<b>Description:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
-
-        $html .= "<a href='$url_choixmodifyItem'>Modifier</a><br>";
-        $html .= "<a href='$url_choixdeleteItem'>Supprimer</a><br>";
+        $liste= Liste::where('no','=',$i['liste_id'])->first();
+        if($liste['user_id']==$_SESSION['login']) {
+            $html .= "<a href='$url_choixmodifyItem'>Modifier</a><br>";
+            $html .= "<a href='$url_choixdeleteItem'>Supprimer</a><br>";
+        }
 
 
         return $html;
@@ -47,10 +41,6 @@ class VueAffichageItem
     public function render( int $select ) : string {
 
         switch ($select) {
-            case 1 : { // liste des items
-                $content = $this->lesItems();
-                break;
-            }
             case 2 : { // un item
                 $content = $this->unItem();
                 break;
