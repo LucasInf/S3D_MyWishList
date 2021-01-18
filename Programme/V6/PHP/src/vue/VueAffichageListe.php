@@ -6,7 +6,6 @@ namespace mywishlist\vue;
 use mywishlist\models\Item;
 use mywishlist\models\Liste;
 
-
 class VueAffichageListe
 {
     private $tab;
@@ -23,7 +22,7 @@ class VueAffichageListe
 
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['token' => $l['token']] ) ;
-        $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
+        $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['token' => $l['token']] ) ;
         $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe', ['token' => $_SESSION['token']] ) ;
         $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['token' => $l['token']] ) ;
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
@@ -49,6 +48,7 @@ class VueAffichageListe
             $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
         }
 
+
         if (isset($_SESSION['PartageURL'])){
             $html .= "{$_SESSION['PartageURL']}<br>";
             unset($_SESSION['PartageURL']);
@@ -61,7 +61,7 @@ class VueAffichageListe
             $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
             $url_reserv   = $this->container->router->pathFor( 'choixreserverItem',['id' => $item['id']]) ;
 
-            $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
+            $html .= "<li><a href='$url_item'>{$item['nom']}</a> {$item['tarif']}€<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
         }
         if($liste['user_id']==$_SESSION['login']) {
             $html .= "<a href='$url_form_item'>Ajouter un item</a><br><br>";
