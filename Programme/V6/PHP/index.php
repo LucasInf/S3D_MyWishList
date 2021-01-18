@@ -72,7 +72,7 @@ $app->get('/nouvelitem' , ControlCreationItem::class.':formItem'  )->setName('fo
 $app->post('/nouvelitem' , ControlCreationItem::class.':newItem'  )->setName('newItem'  );
 
 //Modification item
-$app->get('/choixmodifyItem' , ControlModificationItem::class.':choixmodifyItem'  )->setName('choixmodifyItem'  );
+$app->get('/choixmodifyItem/{id}' , ControlModificationItem::class.':choixmodifyItem'  )->setName('choixmodifyItem'  );
 $app->post('/modifyItem' , ControlModificationItem::class.':modifyItem'  )->setName('modifyItem'  );
 
 //Supprimer item

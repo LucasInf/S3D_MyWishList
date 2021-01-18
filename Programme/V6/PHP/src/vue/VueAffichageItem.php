@@ -29,12 +29,14 @@ class VueAffichageItem
         $i = $this->tab[0];
 
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem',    ['id' => $i['id']]         ) ;
+        $url_choixdeleteItem   = $this->container->router->pathFor( 'choixmodifyItem',    ['id' => $i['id']]         ) ;
 
         $html = "<h2>Item {$i['id']}</h2>";
         $html .= "<b>Nom:</b> {$i['nom']}<br>";
         $html .= "<b>Descr:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
 
+        $html .= "<a href='$url_choixdeleteItem'>Modifier</a><br>";
         $html .= "<a href='$url_choixdeleteItem'>Supprimer</a><br>";
 
 
