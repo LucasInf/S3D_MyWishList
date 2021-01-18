@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace mywishlist\vue;
 
 use mywishlist\models\Item;
+use mywishlist\models\Liste;
 
 
 class VueAffichageListe
@@ -35,16 +36,18 @@ class VueAffichageListe
 
         $_SESSION['titre'] = $l['titre'];
 
-        $items = Item::where('liste_id', '=', $l['no'])->get(); ;
+        $items = Item::where('liste_id', '=', $l['no'])->get();
+        $liste= Liste::where('no','=',$l['no'])->first();
 
         $html = "<h2>LISTE : {$l['titre']}</h2>";
         $html .= "<b>Description:</b> {$l['description']}<br>";
         $html .= "<b>Date d'expiration:</b> {$l['expiration']}<br>";
 
-        $html .= "<a href='$url_msg'>Ajouter un message à la liste</a><br>";
-        $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a><br>";
-        $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
-
+        if($liste['user_id']==$_SESSION['login']) {
+            $html .= "<a href='$url_msg'>Ajouter un message à la liste</a><br>";
+            $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a><br>";
+            $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
+        }
 
         if (isset($_SESSION['PartageURL'])){
             $html .= "{$_SESSION['PartageURL']}<br>";
@@ -60,7 +63,9 @@ class VueAffichageListe
 
             $html .= "<li><a href='$url_item'>{$item['nom']}</a>,{$item['descr']}, {$item['tarif']}<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
         }
-        $html .= "<a href='$url_form_item'>Ajouter un item</a><br><br>";
+        if($liste['user_id']==$_SESSION['login']) {
+            $html .= "<a href='$url_form_item'>Ajouter un item</a><br><br>";
+        }
 
         $html = "<ul>$html</ul>";
         return $html;

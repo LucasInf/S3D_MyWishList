@@ -22,6 +22,7 @@ class VueCreationListe
 <form method="POST" action="$url_new_liste">
 	<label>Titre:<br> <input type="text" name="titre"/></label><br>
 	<label>Description: <br><input type="text" name="description"/></label><br>
+		<label>Date d'échéance: <br><input type="text" name="echeance"/></label><br>
 	<button type="submit">Enregistrer la liste</button>
 </form>
 FIN;
