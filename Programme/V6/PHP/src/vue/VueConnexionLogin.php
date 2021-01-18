@@ -22,7 +22,7 @@ class VueConnexionLogin
 <form method="POST" action="$url_testpass">
 	<label>Login:<br> <input type="text" name="login"/></label><br>
 	<label>Mot de passe: <br><input type="text" name="pass"/></label><br>
-	<button type="submit">Tester le login</button>
+	<button type="submit">Se connecter</button>
 </form>
 FIN;
         return $html;
@@ -58,7 +58,7 @@ FIN;
 <html>
   <head>
     <title>Exemple</title>
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
@@ -77,7 +77,7 @@ FIN;
 <html>
   <head>
     <title>Exemple</title>
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>

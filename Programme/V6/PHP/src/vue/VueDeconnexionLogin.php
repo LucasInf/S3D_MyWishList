@@ -65,15 +65,15 @@ FIN;
 <html>
   <head>
     <title>Exemple</title>
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
 		<nav>
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
-				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">S'inscrire</a></li>
+				<li><a href="$url_formlogin">S'inscrire</a></li>
+				<li><a href="$url_testform">Se connecter</a></li>
 			</ul>
 		</nav>
 $content

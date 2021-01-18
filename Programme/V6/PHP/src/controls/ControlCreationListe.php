@@ -31,6 +31,7 @@ class ControlCreationListe
     public function newListe(Request $rq, Response $rs, $args) : Response {
         // pour enregistrer 1 liste.....
         $post = $rq->getParsedBody() ;
+        session_start();
         $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
         $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
         $token = openssl_random_pseudo_bytes(9);
@@ -38,6 +39,7 @@ class ControlCreationListe
         $l = new Liste();
         $l->token = $token;
         $l->titre = $titre;
+        $l->user_id= $_SESSION['login'];
         $l->description = $description;
         $l->save();
 

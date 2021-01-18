@@ -17,6 +17,7 @@ class VueCreationListe
 
     private function formListe() : string {
         $url_new_liste = $this->container->router->pathFor( 'newListe' ) ;
+        session_start();
         $html = <<<FIN
 <form method="POST" action="$url_new_liste">
 	<label>Titre:<br> <input type="text" name="titre"/></label><br>
