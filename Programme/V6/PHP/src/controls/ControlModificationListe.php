@@ -26,9 +26,11 @@ class ControlModificationListe
     }
 
     public function modifyListe(Request $rq, Response $rs, $args): Response{
+        session_start();
+
         $post = $rq->getParsedBody() ;
-        $token   = filter_var($post['token']       , FILTER_SANITIZE_STRING) ;
-        $titre    = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
+        $token = $_SESSION['token'];
+        $titre = $_SESSION['titre'];
         if(!($token=='')){
             $i = Liste::where( 'titre', 'LIKE', $titre)->first() ;
             if($i->token==$token){

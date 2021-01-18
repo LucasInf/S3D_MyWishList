@@ -16,11 +16,13 @@ class VueSupListe
     }
 
     private function choixdeleteListe() : string {
-        $url_deleteListe = $this->container->router->pathFor( 'deleteListe' ) ;
+
+        $l = $this->tab[0];
+        $url_deleteListe = $this->container->router->pathFor( 'deleteListe') ;
+        session_start();
         $html = <<<FIN
 <form method="POST" action="$url_deleteListe">
-    <label>Titre:<br> <input type="text" name="nom"/></label><br>
-    <label>Token:<br> <input type="text" name="token"/></label><br>
+    <label>Token:<br> {$_SESSION['token']}</label><br>
     <button type="submit">Supprimer la liste</button>
 </form>
 FIN;

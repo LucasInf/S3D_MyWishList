@@ -33,8 +33,16 @@ class VueAffichageListe
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['no' => $l['no']] ) ;
         $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['no' => $l['no']] ) ;
+        $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe', ['no' => $l['no']] ) ;
+        $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['no' => $l['no']] ) ;
 
         $_SESSION['listeReserv'] = $l['no'];
+
+        $_SESSION['token'] = $l['token'];
+
+        $_SESSION['no'] = $l['no'];
+
+        $_SESSION['titre'] = $l['titre'];
 
         $items = Item::where('liste_id', '=', $l['no'])->get(); ;
 
@@ -43,6 +51,8 @@ class VueAffichageListe
         $html .= "<b>Description:</b> {$l['description']}<br>";
         $html .= "<a href='$url_msg'>Ajouter un message</a><br>";
         $html .= "<a href='$url_share'>Partager</a>";
+        $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a>";
+        $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a>";
         $html .= "<h3>Items </h3>";
 
         foreach($items as $item){
