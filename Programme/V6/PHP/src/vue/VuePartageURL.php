@@ -17,7 +17,7 @@ class VuePartageURL
 
     private function share():string{
         $l = $this->tab[0];
-        $html=$this->container->router->pathFor( 'aff_liste', ['no' => $l['no']] ) ;
+        $html=$this->container->router->pathFor( 'aff_liste', ['token' => $l['token']] ) ;
 
         return $html;
     }

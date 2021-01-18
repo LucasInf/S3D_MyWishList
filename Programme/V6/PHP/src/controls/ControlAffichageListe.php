@@ -29,7 +29,7 @@ class ControlAffichageListe
     }
 
     public function afficherListe(Request $rq, Response $rs, $args) : Response {
-        $liste = Liste::find( $args['no'] ) ;
+        $liste = Liste::where('token','=',$args['token'])->first() ; ;
         $vue = new VueAffichageListe( [ $liste->toArray() ] , $this->container ) ;
         $rs->getBody()->write( $vue->render( 2 ) ) ;
         return $rs;

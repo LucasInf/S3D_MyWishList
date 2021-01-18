@@ -21,7 +21,7 @@ class ControlPartageURL
     }
 
     public function share(Request $rq, Response $rs, $args) : Response {
-        $liste = Liste::find( $args['no'] ) ;
+        $liste = Liste::where('token','=',$args['token'])->first() ;
         $vue = new VuePartageURL( [ $liste->toArray() ] , $this->container ) ;
         $rs->getBody()->write( $vue->render(  1) ) ;
         return $rs;

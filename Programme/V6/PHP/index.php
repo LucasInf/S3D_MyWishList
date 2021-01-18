@@ -41,7 +41,7 @@ $app->get('/'          , ControlAccueil::class.':accueil'       )->setName('raci
 //liste
 //affichage liste
 $app->get('/listes'    , ControlAffichageListe::class.':afficherListes')->setName('aff_listes');
-$app->get('/liste/{no}', ControlAffichageListe::class.':afficherListe' )->setName('aff_liste' );
+$app->get('/liste/{token}', ControlAffichageListe::class.':afficherListe' )->setName('aff_liste' );
 
 //Creation liste
 $app->get('/nouvelleliste' , ControlCreationListe::class.':formListe'  )->setName('formListe'  );
@@ -52,7 +52,7 @@ $app->get('/choixmodifyListe/{token}' , ControlModificationListe::class.':choixm
 $app->post('/modifyListe' , ControlModificationListe::class.':modifyListe'  )->setName('modifyListe'  );
 
 //Partage de la liste
-$app->get('/share/{no}' , ControlPartageURL::class.':share'  )->setName('share'  );
+$app->get('/share/{token}' , ControlPartageURL::class.':share'  )->setName('share'  );
 
 //Supprimer liste
 $app->get('/choixdeleteListe' , ControlSupListe::class.':choixdeleteListe'  )->setName('choixdeleteListe'  );

@@ -22,7 +22,7 @@ class VueAffichageListes
     {
         $html = '';
         foreach ($this->tab as $liste) {
-            $url_liste = $this->container->router->pathFor('aff_liste', ['no' => $liste['no']]);
+            $url_liste = $this->container->router->pathFor('aff_liste', ['token' => $liste['token']]);
             $html .= "<li><a href='$url_liste'>{$liste['titre']}</a>, {$liste['description']}</li>";
         }
         $html = "<ul>$html</ul>";
