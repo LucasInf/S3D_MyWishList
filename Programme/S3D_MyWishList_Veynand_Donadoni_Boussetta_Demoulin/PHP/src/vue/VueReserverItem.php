@@ -25,6 +25,7 @@ class VueReserverItem
             $html = <<<FIN
     <form method="POST" action="$url_reserverItem">
     <label>Nom participant:<br> {$_SESSION['login']}</label><br>
+    <label>Message:<br> <input type="text" name="msg"/></label><br>
 	<button type="submit">Reserver item</button>
 </form>
 FIN;
@@ -33,6 +34,7 @@ FIN;
     <form method="POST" action="$url_reserverItem">
     <h2>Reserver l'item {$i['nom']} ?</h2>
     <label>Nom participant:<br> <input type="text" name="nomP"/></label><br>
+    <label>Message:<br> <input type="text" name="msg"/></label><br>
 	<button type="submit">Reserver item</button>
 </form>
 FIN;

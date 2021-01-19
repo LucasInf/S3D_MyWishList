@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace mywishlist\vue;
 use mywishlist\models\Liste;
+use mywishlist\models\Reservation;
 
 class VueAffichageItem
 {
@@ -25,12 +26,13 @@ class VueAffichageItem
         $url_choixmodifyItem   = $this->container->router->pathFor( 'choixmodifyItem',    ['id' => $i['id']]         ) ;
 
         $html = "<h2>ITEM : {$i['nom']}</h2>";
-        $html .= "<p><img src={$i['img']}></p>";
+        $html .= "<p><img src='../../img/{$i['img']}'/></p>";
         $html .= "<b>Description:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
 
         $liste= Liste::where('no','=',$i['liste_id'])->first();
-        if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login']) {
+        $reserv = Reservation::where('idItem', '=', $i['id'])->first();
+        if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login'] && $reserv==null) {
             $html .= "<a href='$url_choixmodifyItem'>Modifier</a><br>";
             $html .= "<a href='$url_choixdeleteItem'>Supprimer</a><br>";
         }

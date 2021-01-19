@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace mywishlist\controls;
 
 
+use mywishlist\models\Message;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -30,6 +31,7 @@ class ControlReserverItem
         $liste_id    = $_SESSION['listeReserv'];
         $id     = $_SESSION['itemReserv'];
         $nomP     = filter_var($post['nomP']       , FILTER_SANITIZE_STRING);
+        $msg    = filter_var($post['msg']       , FILTER_SANITIZE_STRING);
 
         if(!($liste_id==null)){
             $i = Item::where( 'id', '=', $id) ->first() ;
@@ -49,6 +51,19 @@ class ControlReserverItem
                         $newRes->nomParticipant = $nomP;
                     }
                     $newRes->save();
+
+                    if ($msg != ""){
+                        $newMsg= new Message();
+                        $newMsg->msg = "(Reservation) ".$msg;
+                        $newMsg->liste_id = $liste_id;
+                        if(isset($_SESSION['login'])) {
+                            $nom = User::where('id', '=', $_SESSION['login'])->first();
+                            $newMsg->auteur = $nom['login'];
+                        }else{
+                            $newMsg->auteur = $nomP;
+                        }
+                        $newMsg->save();
+                    }
 
                     $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
                     return $rs->withRedirect($url_items);
