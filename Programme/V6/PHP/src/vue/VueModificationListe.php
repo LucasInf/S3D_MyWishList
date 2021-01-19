@@ -24,6 +24,7 @@ class VueModificationListe
     <h2>Modifier la liste "{$_SESSION['titre']}" ?</h2>
     <label>Nouveau titre:<br> <input type="text" name="nouveautitre"/></label><br>
     <label>Nouvelle description:<br> <input type="text" name="nouvelledescription"/></label><br>
+    <label>Date d'échéance: <br><input type="date" name="nouvelleecheance"/></label><br>
     <button type="submit">Modifier la liste</button>
 </form>
 FIN;

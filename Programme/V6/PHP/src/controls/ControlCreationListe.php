@@ -34,11 +34,12 @@ class ControlCreationListe
         session_start();
         $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
         $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
-        $echeance = filter_var($post['echeance'] , FILTER_SANITIZE_STRING) ;
+        $echeance = filter_var($post['echeance']) ;
         $token = openssl_random_pseudo_bytes(9);
         $token = bin2hex($token);
         $l = new Liste();
         $l->token = $token;
+        if ($titre == "") $titre = 'Aucun nom';
         $l->titre = $titre;
         $l->user_id= $_SESSION['login'];
         $l->description = $description;

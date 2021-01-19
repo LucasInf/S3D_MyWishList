@@ -36,12 +36,15 @@ class ControlModificationListe
             if($i->token==$token){
                 $newT = filter_var($post['nouveautitre'],FILTER_SANITIZE_STRING);
                 $newD = filter_var($post['nouvelledescription'],FILTER_SANITIZE_STRING);
+                $newDa = filter_var($post['nouvelleecheance']);
                 if ($newT == "") $newT =$i['titre'];
                 if ($newD == "") $newD =$i['description'];
+                if ($newDa == '') $newDa =$i['expiration'];
                 $i->titre = $newT;
                 $i->description = $newD;
+                $i->expiration = $newDa;
                 $i->update();
-                $url_liste = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+                $url_liste = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
                 return $rs->withRedirect($url_liste);
             }else{
                 echo "La liste n'a pas été trouvée car les informations données ne sont pas valides";

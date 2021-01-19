@@ -5,6 +5,8 @@ namespace mywishlist\vue;
 
 use mywishlist\models\Item;
 use mywishlist\models\Liste;
+use mywishlist\models\Message;
+use mywishlist\models\Reservation;
 
 class VueAffichageListe
 {
@@ -23,8 +25,9 @@ class VueAffichageListe
         $l = $this->tab[0];
         $url_share = $this->container->router->pathFor( 'share', ['token' => $l['token']] ) ;
         $url_msg = $this->container->router->pathFor( 'ajoutMessageliste', ['token' => $l['token']] ) ;
-        $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe', ['token' => $_SESSION['token']] ) ;
+
         $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['token' => $l['token']] ) ;
+        $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe',['token' => $l['token']] ) ;
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
 
         $_SESSION['listeReserv'] = $l['no'];
@@ -36,14 +39,17 @@ class VueAffichageListe
         $_SESSION['titre'] = $l['titre'];
 
         $items = Item::where('liste_id', '=', $l['no'])->get();
+        $msgs = Message::where('liste_id', '=', $l['no'])->get();
+        $reservs = Reservation::where('liste_id', '=', $l['no'])->get();
         $liste= Liste::where('no','=',$l['no'])->first();
 
         $html = "<h2>LISTE : {$l['titre']}</h2>";
         $html .= "<b>Description:</b> {$l['description']}<br>";
         $html .= "<b>Date d'expiration:</b> {$l['expiration']}<br>";
 
-        if($liste['user_id']==$_SESSION['login']) {
-            $html .= "<a href='$url_msg'>Ajouter un message à la liste</a><br>";
+
+        if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login']) {
+
             $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a><br>";
             $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
         }
@@ -55,17 +61,44 @@ class VueAffichageListe
         }else{
             $html .= "<a href='$url_share'>Partager</a><br>";
         }
-        $html .= "<h3>Items </h3>";
+        $html .= "<h3>Items</h3>";
 
         foreach($items as $item){
+            $r= false;
             $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
             $url_reserv   = $this->container->router->pathFor( 'choixreserverItem',['id' => $item['id']]) ;
 
-            $html .= "<li><a href='$url_item'>{$item['nom']}</a> {$item['tarif']}€<a href='$url_reserv'><br><strong>RESERVER {$item['nom']}</strong></a></li><br>";
+            $html .= "<li><a href='$url_item'>{$item['nom']}</a> {$item['tarif']}€<br>";
+            foreach($reservs as $reserv){
+                if ($reserv['idItem'] == $item['id']){
+                   $r = true;
+                }
+            }
+            if ($r){
+                $html .="<strong>DEJA RESERVE PAR : {$reserv['nomParticipant']}</strong></li><br>";
+            }else{
+                $html .="<a href='$url_reserv'><strong>RESERVER {$item['nom']}</strong></a></li><br>";
+            }
+
         }
-        if($liste['user_id']==$_SESSION['login']) {
-            $html .= "<a href='$url_form_item'>Ajouter un item</a><br><br>";
+
+        if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login']) {
+            $html .= "<a href='$url_form_item'>Ajouter un item</a><br>";
         }
+
+
+        $html .= "<h3>Messages</h3>";
+
+        if ($msgs->first() == null){
+            $html .="<ul>Il 'y a aucun messages pour cette liste</ul>";
+        }else {
+            foreach($msgs as $msg){
+                $html .= "<ul><b>{$msg['auteur']} : </b>{$msg['msg']}</ul><br>";
+            }
+        }
+        $html .= "<a href='$url_msg'><br>Ajouter un message à la liste</a><br>";
+
+
 
         $html = "<ul>$html</ul>";
         return $html;

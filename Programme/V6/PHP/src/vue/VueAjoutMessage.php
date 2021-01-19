@@ -16,13 +16,14 @@ class VueAjoutMessage
     }
 
     private function formListe() : string {
-        var_dump($this->tab[0]['token']);
-        $url_new_liste = $this->container->router->pathFor( 'newMessage' , ['no' => $this->tab['no']]) ;
+    session_start();
+        $url_new_liste = $this->container->router->pathFor( 'newMessage') ;
         $html = <<<FIN
 <form method="POST" action="$url_new_liste">
-	<label>Auteur:<br> <input type="text" name="auteur"/></label><br>
-	<label>Description: <br><input type="text" name="message"/></label><br>
-	<button type="submit">Envoyer Message</button>
+	<h2>Ajouter un message à la liste : {$_SESSION['titre']}</h2>
+	<label>Auteur: <br><input type="text" name="auteur"/></label><br>
+	<label>Message: <br><input type="text" name="message"/></label><br>
+	<button type="submit">Ajouter Message</button>
 </form>
 FIN;
         return $html;
@@ -49,7 +50,7 @@ FIN;
 <html>
   <head>
     <title>Exemple</title>
-    <link rel="stylesheet" href="CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
@@ -57,9 +58,6 @@ FIN;
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
-				<li><a href="$url_formlogin">Nouveau login</a></li>
-				<li><a href="$url_testform">S'inscrire</a></li>
 			</ul>
 		</nav>
     $content

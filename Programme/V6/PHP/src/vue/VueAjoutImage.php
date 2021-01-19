@@ -38,54 +38,27 @@ FIN;
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_choixajout_image    = $this->container->router->pathFor( 'choixajoutImage'                 ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
-        $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
-        $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
 
-        if(isset($_SESSION['login'])) {
-            $html = <<<FIN
+        $html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exemple</title>
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <title>Accueil</title>
+    <link rel="stylesheet" href="CSS/design.css" />
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
 		<nav>
-			<ul>
-				<li><a href="$url_accueil">Accueil</a></li>
-				<li><a href="$url_choixajout_image">Ajouter Image</a></li>
-				<li><a href="$url_deconnexion">Deconnexion</a></li>
-			</ul>
+		    <strong>
+			    <ul>
+			    	<li><a href="$url_choixajout_image">Ajouter image</a></li>
+			    </ul>
+			</strong>
 		</nav>
     $content
   </body>
 </html>
 FIN;
-        }else {
-            $html = <<<FIN
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Exemple</title>
-    <link rel="stylesheet" href="../CSS/design.css" />
-  </head>
-  <body>
-		<h1><a href="$url_accueil">Wish List</a></h1>
-		<nav>
-			<ul>
-				<li><a href="$url_accueil">Accueil</a></li>
-				<li><a href="$url_choixajout_image">Ajouter Image</a></li>
-				<li><a href="$url_formlogin">S'inscrire</a></li>
-				<li><a href="$url_testform">Se connecter</a></li>
-			</ul>
-		</nav>
-    $content
-  </body>
-</html>
-FIN;
-        }
         return $html;
     }
 }

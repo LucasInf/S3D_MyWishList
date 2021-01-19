@@ -30,25 +30,21 @@ class ControlReserverItem
         $id     = $_SESSION['itemReserv'];
         $nomP     = filter_var($post['nomP']       , FILTER_SANITIZE_STRING);
 
-        $token = random_bytes(100);
-        $token = bin2hex($token);
-
         if(!($liste_id==null)){
             $i = Item::where( 'id', '=', $id) ->first() ;
+
             $Res = Reservation::where( 'idItem', '=', $id) ->first() ;
             if($i->liste_id==$liste_id){
+
                 if($Res->idItem == null){
+
                     $newRes= new Reservation();
-                    $newRes->idReservation = $token;
                     $newRes->idItem = $i->id;
                     $newRes->liste_id = $liste_id;
-                    if(isset($_SESSION['login'])) {
-                        $newRes->nomParticipant = $_SESSION['login'];
-                    }else{
-                        $newRes->nomParticipant = $nomP;
-                    }
+                    $newRes->nomParticipant= $nomP;
                     $newRes->save();
-                    $url_items = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
+
+                    $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
                     return $rs->withRedirect($url_items);
                 }else{
                     echo "L'item est déja réservé";

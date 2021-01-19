@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
+use mywishlist\models\Message;
 use mywishlist\vue\VueAjoutMessage;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
@@ -28,32 +29,22 @@ class ControlAjouterMessageListe{
 
     //Ajout d'un message sur une liste publique
     public function newMessage(Request $rq, Response $rs, array $args): Response {
-        try {
-            $auteur = filter_var($rq->getParsedBodyParam('auteur'), FILTER_SANITIZE_STRING);
-            $message = filter_var($rq->getParsedBodyParam('message'), FILER_SANITIZE_STRING);
-            $token = filter_var(args('token'), FILER_SANITIZE_STRING);
+        session_start();
+        $post = $rq->getParsedBody() ;
 
-            $liste = Liste::where('token', '=', $token)->firstOrFail();
+        $auteur = filter_var($post['auteur'], FILTER_SANITIZE_STRING);
+        $message = filter_var($post['message'], FILTER_SANITIZE_STRING);
 
-            $this->loadCookiesFromRequest($rq);
+        $m = new message();
+        $m->liste_id = $_SESSION['no'];
+        $m->msg = $message;
+        $m->auteur = $auteur;
+        $m->save();
 
-            $message = new Message();
-            $message->idListe = $liste->no;
-            $message->message = $message;
-            $message->auteur = $auteur;
-            $message->save();
+        $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
+        return $rs->withRedirect($url_items);
 
-            $this->changeName($auteur);
-            $rq = $this->createResponseCookie($rq);
-            $this->flash->newMessage('Succes', "$auteur votre message à bien été envoyé");
-            $rq = $rq->withRedirect($this->router->pathFor('aff_listes'));
 
-        } catch (Exception $e) {
-            $this->flash->newMessage('Error', $e->getMessage());
-            $response = $rs->withRedirect($this->router->pathFor('aff_listes'));
-        }
-
-        return $rs;
     }
 
 }

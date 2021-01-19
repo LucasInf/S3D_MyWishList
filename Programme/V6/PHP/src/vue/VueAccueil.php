@@ -19,11 +19,11 @@ class VueAccueil {
 
 		switch ($select) {
 			case 0 : {
-				$content = 'accueil racine du site';
+				$content = '<h2>accueil racine du site</h2>';
                 session_start();
-                if (isset($_SESSION['iduser'])) {
-                    $nom = User::where('id', '=', $_SESSION['iduser'])->first();
-                    echo '<br>Bonjour '.$nom->login;
+                if (isset($_SESSION['login'])) {
+                    $nom = User::where('id', '=', $_SESSION['login'])->first();
+                    $content .= "<h3>Bonjour {$nom['login']}</h3>";
                 }
 				break;
 			}
@@ -73,6 +73,7 @@ FIN;
 		<h1><a href="$url_accueil">Wish List</a></h1>
 		<nav>
 			<ul>
+			    <li><a href="$url_accueil">Accueil</a></li>
 			    <li><a href="$url_listes">Listes</a></li>
 				<li><a href="$url_formlogin">S'inscrire</a></li>
 				<li><a href="$url_testform">Se connecter</a></li>

@@ -32,6 +32,7 @@ class ControlCreationItem
         // pour enregistrer 1 item.....
         session_start();
         $post = $rq->getParsedBody() ;
+
         $liste_id    = $_SESSION['no'] ;
         $nom     = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
         $descr = filter_var($post['descr'] , FILTER_SANITIZE_STRING) ;

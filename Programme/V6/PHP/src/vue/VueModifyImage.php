@@ -51,7 +51,6 @@ FIN;
 		<nav>
 		    <strong>
 			    <ul>
-			        <li><a href="$url_accueil">Accueil</a></li>
 			    	<li><a href="$url_choixmodify_image">Modifier image</a></li>
 			    </ul>
 			</strong>

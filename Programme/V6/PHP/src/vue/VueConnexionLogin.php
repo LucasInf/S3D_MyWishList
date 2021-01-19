@@ -65,6 +65,7 @@ FIN;
 		<nav>
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
+				<li><a href="$url_listes">Listes</a></li>
 			</ul>
 		</nav>
     $content
