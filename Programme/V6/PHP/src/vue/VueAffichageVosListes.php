@@ -16,7 +16,7 @@ class VueAffichageVosListes
 
     }
 
-    private function lesListes(): string
+    private function vosListes(): string
     {
         $html = '';
         $html .= "<h2>Vos Wish Listes :</h2>";
@@ -24,7 +24,14 @@ class VueAffichageVosListes
         foreach ($this->tab as $liste) {
             if ($liste['user_id'] == $_SESSION['login']){
                 $url_liste = $this->container->router->pathFor('aff_liste', ['token' => $liste['token']]);
-                $html .= "<li><a href='$url_liste'>{$liste['titre']}</a>, {$liste['description']}</li>";
+
+                if ($liste['public']){
+                    $pub = "PUBLIC";
+                }else {
+                    $pub = "PRIVE";
+                }
+
+                $html .= "<li><a href='$url_liste'>{$liste['titre']}</a> <strong>$pub</strong></li>";
             }
 
         }
@@ -38,7 +45,7 @@ class VueAffichageVosListes
         switch ($select) {
             case 1 :
             { // liste des listes
-                $content = $this->lesListes();
+                $content = $this->vosListes();
                 break;
             }
         }

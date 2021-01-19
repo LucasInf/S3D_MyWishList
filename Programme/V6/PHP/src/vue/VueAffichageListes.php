@@ -22,10 +22,11 @@ class VueAffichageListes
     {
         $html = '';
         $html .= "<h2>Les Wish Listes public:</h2>";
+        var_dump($this->tab);
         foreach ($this->tab as $liste) {
             if ($liste['public'] == true){
                 $url_liste = $this->container->router->pathFor('aff_liste', ['token' => $liste['token']]);
-                $html .= "<li><a href='$url_liste'>{$liste['titre']}</a>, {$liste['description']}</li>";
+                $html .= "<li><a href='$url_liste'>{$liste['titre']}</a></li>";
             }
 
         }
