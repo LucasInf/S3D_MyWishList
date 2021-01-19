@@ -42,7 +42,11 @@ class ControlReserverItem
                     $newRes->idReservation = $token;
                     $newRes->idItem = $i->id;
                     $newRes->liste_id = $liste_id;
-                    $newRes->nomParticipant= $nomP;
+                    if(isset($_SESSION['login'])) {
+                        $newRes->nomParticipant = $_SESSION['login'];
+                    }else{
+                        $newRes->nomParticipant = $nomP;
+                    }
                     $newRes->save();
                     $url_items = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
                     return $rs->withRedirect($url_items);

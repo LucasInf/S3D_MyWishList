@@ -50,8 +50,31 @@ class VueAffichageItem
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
+        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
 
-        $html = <<<FIN
+        if(isset($_SESSION['login'])) {
+            $html = <<<FIN
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemple</title>
+    <link rel="stylesheet" href="../CSS/design.css" />
+  </head>
+  <body>
+		<h1><a href="$url_accueil">Wish List</a></h1>
+		<nav>
+			<ul>
+				<li><a href="$url_accueil">Accueil</a></li>
+				<li><a href="$url_listes">Listes</a></li>
+				<li><a href="$url_deconnexion">Deconnexion</a></li>
+			</ul>
+		</nav>
+    $content
+  </body>
+</html>
+FIN;
+        }else{
+            $html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
@@ -70,6 +93,7 @@ class VueAffichageItem
   </body>
 </html>
 FIN;
+        }
         return $html;
     }
 
