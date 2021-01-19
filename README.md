@@ -5,21 +5,21 @@
 ### Participant
 
 1. [x] *Afficher une liste de souhaits* (Veynand Lucas)
-2. [x] *Afficher un item d'une liste* (Veynand Lucas)
-3. [x] *Réserver un item* (nael Boussetta, Quentin Donadoni, Veynand Lucas)
+2. [x] *Afficher un item d'une liste* (Boussetta Nael, Veynand Lucas)
+3. [x] *Réserver un item* (Boussetta Nael, Quentin Donadoni, Veynand Lucas)
 4. [x] *Ajouter un message avec sa réservation* (Veynand Lucas)
 5. [x] *Ajouter un message sur une liste* (Demoulin Eddy, Veynand Lucas)
 
 ### Créateur
 
 6. [x] *Créer une liste* (Veynand Lucas)
-7. [x] *Modifier les informations générales d'une de ses listes* (Veynand Lucas)
-8. [x] *Ajouter des items* (Veynand Lucas)
+7. [x] *Modifier les informations générales d'une de ses listes* (Boussetta Nael, Veynand Lucas)
+8. [x] *Ajouter des items* (Boussetta Nael, Veynand Lucas)
 9. [x] *Modifier un item* (Boussetta Nael,  Veynand Lucas)
 10. [x] *Supprimer un item* (Boussetta Nael,  Veynand Lucas)
-11. [ ] *Rajouter une image à un item*
-12. [ ] *Modifier une image d'un item*
-13. [ ] *Supprimer une image d'un item*
+11. [x] *Rajouter une image à un item* (Boussetta Nael)
+12. [x] *Modifier une image d'un item* (Boussetta Nael)
+13. [x] *Supprimer une image d'un item* (Boussetta Nael)
 14. [x] *Partager une liste* (Donadoni Quentin)
 15. [x] *Consulter les réservations d'une de ses listes avant échéance*  (Veynand Lucas)
 16. [x] *Consulter les réservations et messages d'une de ses listes après échéance* (Veynand Lucas)
