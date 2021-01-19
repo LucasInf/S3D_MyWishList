@@ -44,6 +44,7 @@ class ControlCreationListe
         $l->user_id= $_SESSION['login'];
         $l->description = $description;
         $l->expiration=$echeance;
+        $l->public=false;
         $l->save();
 
         $url_listes = $this->container->router->pathFor( 'aff_listes' ) ;

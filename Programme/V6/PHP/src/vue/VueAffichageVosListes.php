@@ -3,10 +3,8 @@ declare(strict_types=1);
 
 namespace mywishlist\vue;
 
-use mywishlist\models\Item;
 
-
-class VueAffichageListes
+class VueAffichageVosListes
 {
     private $tab;
     private $container;
@@ -21,9 +19,10 @@ class VueAffichageListes
     private function lesListes(): string
     {
         $html = '';
-        $html .= "<h2>Les Wish Listes public:</h2>";
+        $html .= "<h2>Vos Wish Listes :</h2>";
+        session_start();
         foreach ($this->tab as $liste) {
-            if ($liste['public'] == true){
+            if ($liste['user_id'] == $_SESSION['login']){
                 $url_liste = $this->container->router->pathFor('aff_liste', ['token' => $liste['token']]);
                 $html .= "<li><a href='$url_liste'>{$liste['titre']}</a>, {$liste['description']}</li>";
             }

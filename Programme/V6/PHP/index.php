@@ -8,6 +8,7 @@ use \mywishlist\controls\ControlDeconnexionLogin;
 use \mywishlist\controls\ControlCreationListe;
 use \mywishlist\controls\ControlCreationLogin;
 use \mywishlist\controls\ControlAffichageListe;
+use mywishlist\controls\ControlListePublic;
 use \mywishlist\controls\ControlPartageURL;
 use \mywishlist\controls\ControlConnexionLogin;
 use \mywishlist\controls\ControlSupListe;
@@ -42,6 +43,7 @@ $app->get('/'          , ControlAccueil::class.':accueil'       )->setName('raci
 //affichage liste
 $app->get('/listes'    , ControlAffichageListe::class.':afficherListes')->setName('aff_listes');
 $app->get('/liste/{token}', ControlAffichageListe::class.':afficherListe' )->setName('aff_liste' );
+$app->get('/voslistes'    , ControlAffichageListe::class.':afficherVosListes')->setName('aff_voslistes');
 
 //Creation liste
 $app->get('/nouvelleliste' , ControlCreationListe::class.':formListe'  )->setName('formListe'  );
@@ -62,6 +64,9 @@ $app->post('/deleteListe' , ControlSupListe::class.':deleteListe'  )->setName('d
 $app->get('/ajouterMessageListe/{token}', ControlAjouterMessageListe::class.':ajoutMessageliste')->setName('ajoutMessageliste');
 $app->post('/ajouterMessageListe', ControlAjouterMessageListe::class.':newMessage')->setName('newMessage');
 
+//Passer la liste en public
+$app->get('/passerListePublic/{token}', ControlListePublic::class.':verifPublic')->setName('verifPublic');
+$app->post('/passerListePublic', ControlListePublic::class.':passagePublic')->setName('passagePublic');
 
 //item
 //affichage item

@@ -29,6 +29,7 @@ class VueAffichageListe
         $url_choixmodifyListe = $this->container->router->pathFor( 'choixmodifyListe', ['token' => $l['token']] ) ;
         $url_choixdeleteListe = $this->container->router->pathFor( 'choixdeleteListe',['token' => $l['token']] ) ;
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
+        $url_ListePublic = $this->container->router->pathFor( 'verifPublic', ['token' => $l['token']]             ) ;
 
         $_SESSION['listeReserv'] = $l['no'];
 
@@ -52,6 +53,12 @@ class VueAffichageListe
 
             $html .= "<a href='$url_choixmodifyListe'>Modifier la liste</a><br>";
             $html .= "<a href='$url_choixdeleteListe'>Supprimer la liste</a><br><br>";
+            if ($liste["public"]){
+                $html .= "<a href='$url_ListePublic'>Passer la liste en privé</a><br><br>";
+            }else{
+                $html .= "<a href='$url_ListePublic'>Passer la liste en public</a><br><br>";
+            }
+
         }
 
 

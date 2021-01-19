@@ -39,8 +39,11 @@ class ControlConnexionLogin
         $login       = filter_var($post['login']       , FILTER_SANITIZE_STRING) ;
         $pass = filter_var($post['pass'] , FILTER_SANITIZE_STRING) ;
         $u = User::where('login','=',$login)->first();
-        $res = password_verify($pass,$u->pass);
-
+        if ($u == null){
+            $res = false;
+        }else {
+            $res = password_verify($pass, $u->pass);
+        }
         if ($res) $_SESSION['login'] = $u->id;
         $vue = new VueConnexionLogin( [ 'res' => $res ] , $this->container ) ;
         $rs->getBody()->write( $vue->render( 2 ) ) ;
