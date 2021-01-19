@@ -51,7 +51,6 @@ class VueAffichageItem
             }
 
         }
-
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
         $url_voslistes     = $this->container->router->pathFor( 'aff_voslistes'             ) ;
@@ -59,6 +58,7 @@ class VueAffichageItem
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
         $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
+        $url_listesCr = $this->container->router->pathFor( 'aff_createur'             ) ;
 
 
         if(isset($_SESSION['login'])) {
@@ -84,6 +84,7 @@ class VueAffichageItem
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
+				<li><a href="$url_listesCr">Liste créateur</a></li>
 				$ada
 				
 			</ul>

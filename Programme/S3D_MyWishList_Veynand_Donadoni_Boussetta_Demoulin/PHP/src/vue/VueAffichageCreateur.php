@@ -49,7 +49,6 @@ class VueAffichageCreateur
             }
 
         }
-
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
         $url_voslistes     = $this->container->router->pathFor( 'aff_voslistes'             ) ;
