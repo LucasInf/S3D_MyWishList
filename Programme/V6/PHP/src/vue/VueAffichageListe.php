@@ -64,6 +64,7 @@ class VueAffichageListe
         $html .= "<h3>Items</h3>";
 
         foreach($items as $item){
+            $ir=null;
             $r= false;
             $url_item   = $this->container->router->pathFor( 'aff_item', ['id' => $item['id']] ) ;
             $url_reserv   = $this->container->router->pathFor( 'choixreserverItem',['id' => $item['id']]) ;
@@ -72,10 +73,12 @@ class VueAffichageListe
             foreach($reservs as $reserv){
                 if ($reserv['idItem'] == $item['id']){
                    $r = true;
+                   $ir=$item['id'];
                 }
             }
             if ($r){
-                $html .="<strong>DEJA RESERVE PAR : {$reserv['nomParticipant']}</strong></li><br>";
+                $nomR= Reservation::where('idItem', '=', $ir)->first();
+                $html .="<strong>DEJA RESERVE PAR : {$nomR['nomParticipant']}</strong></li><br>";
             }else{
                 $html .="<a href='$url_reserv'><strong>RESERVER {$item['nom']}</strong></a></li><br>";
             }

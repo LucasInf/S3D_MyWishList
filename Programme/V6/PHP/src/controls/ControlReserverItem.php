@@ -11,6 +11,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use mywishlist\vue\VueReserverItem;
 use \mywishlist\models\Item;
 use \mywishlist\models\Reservation;
+use mywishlist\models\User;
 
 class ControlReserverItem
 {
@@ -41,7 +42,12 @@ class ControlReserverItem
                     $newRes= new Reservation();
                     $newRes->idItem = $i->id;
                     $newRes->liste_id = $liste_id;
-                    $newRes->nomParticipant= $nomP;
+                    if(isset($_SESSION['login'])) {
+                        $nom = User::where('id', '=', $_SESSION['login'])->first();
+                        $newRes->nomParticipant = $nom['login'];
+                    }else{
+                        $newRes->nomParticipant = $nomP;
+                    }
                     $newRes->save();
 
                     $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;

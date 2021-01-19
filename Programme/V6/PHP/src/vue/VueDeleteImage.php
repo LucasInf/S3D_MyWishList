@@ -37,7 +37,7 @@ FIN;
 
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_choixdelete_image    = $this->container->router->pathFor( 'choixdeleteImage'                 ) ;
-
+        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
         $html = <<<FIN
 <!DOCTYPE html>
 <html>
@@ -50,7 +50,9 @@ FIN;
 		<nav>
 		    <strong>
 			    <ul>
+			        <li><a href="$url_accueil">Accueil</a></li>
 			    	<li><a href="$url_choixdelete_image">Supprimer image</a></li>
+			    	<li><a href="$url_deconnexion">Deconnexion</a></li>
 			    </ul>
 			</strong>
 		</nav>
