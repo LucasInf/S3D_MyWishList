@@ -8,6 +8,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use mywishlist\vue\VueModifyLogin;
+use mywishlist\vue\VueConnexionLogin;
 use \mywishlist\models\User;
 
 class ControlModifyLogin
@@ -42,8 +43,10 @@ class ControlModifyLogin
             $login = 'Compte non existant';
         }
 
-        $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
-        return $rs->withRedirect($url_items);
+        if ($u) $_SESSION['login'] = $u->id;
+        $vue = new VueConnexionLogin( [ 'res' => $u ] , $this->container ) ;
+        $rs->getBody()->write( $vue->render( 2 ) ) ;
+        return $rs;
     }
 
     public function choixmodifylogin(Request $rq, Response $rs, $args): Response{
