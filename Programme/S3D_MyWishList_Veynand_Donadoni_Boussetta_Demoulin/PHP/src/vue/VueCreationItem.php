@@ -19,14 +19,16 @@ class VueCreationItem
         session_start();
             $url_new_item = $this->container->router->pathFor('newItem');
             $html = <<<FIN
-    <form method="POST" action="$url_new_item">
+    <form method="POST" action="$url_new_item" enctype="multipart/form-data">
     <h2>Ajout d'un item dans la liste {$_SESSION['no']}</h2>
     <label>Nom:<br> <input type="text" name="nom"/></label><br>
 	<label>Description:<br> <input type="text" name="descr"/></label><br>
 	<label>Tarif: <br><input type="number" name="tarif"/></label><br>
-	<button type="submit">Enregistrer item</button>
+	<input type="file" name="fileToUpload" id="fileToUpload">
+	<input type="submit" value="Upload Image" name="submit">
 </form>
 FIN;
+
         return $html;
     }
 
