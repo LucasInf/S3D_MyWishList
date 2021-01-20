@@ -25,24 +25,29 @@ class VueAffichageItem
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem',    ['id' => $i['id']]         ) ;
         $url_choixmodifyItem   = $this->container->router->pathFor( 'choixmodifyItem',    ['id' => $i['id']]         ) ;
 
+        $liste= Liste::where('no','=',$i['liste_id'])->first();
+        $reserv = Reservation::where('idItem', '=', $i['id'])->first();
+
         $url_change_image = $this->container->router->pathFor('changeImage', ['id' => $i['id']] );
         $html = "<h2>ITEM : {$i['nom']}</h2>";
         if(!$i['img']==NULL){
             $html .= "<p><img src='../../../img/{$i['img']}'/></p>";
         }else{
-            $html.= <<<FIN
+            if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login']){
+                $html.= <<<FIN
     <form method="POST" action="$url_change_image" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
-	<input type="submit" value="Ajouter image" name="submit">
-    </form>
+	<br><input type="submit" value="Ajouter item" name="submit"><br>
+</form>
 FIN;
+            }
+
 
         }
         $html .= "<b>Description:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
 
-        $liste= Liste::where('no','=',$i['liste_id'])->first();
-        $reserv = Reservation::where('idItem', '=', $i['id'])->first();
+
         if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login'] && $reserv==null) {
             $html .= "<a href='$url_choixmodifyItem'>Modifier</a><br>";
             $html .= "<a href='$url_choixdeleteItem'>Supprimer</a><br>";
@@ -68,18 +73,17 @@ FIN;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
+        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
         $url_listesCr = $this->container->router->pathFor( 'aff_createur'             ) ;
-        $url_compte     = $this->container->router->pathFor( 'aff_compte'             ) ;
 
 
         if(isset($_SESSION['login'])) {
             $ada = "<li><a href=".$url_voslistes.">Vos Listes</a></li>
 				<li><a href=".$url_form_liste.">Nouvelle Liste</a></li>
-                <li><a href=".$url_compte.">Mon compte</a></li>";
+				<li><a href=".$url_deconnexion.">Deconnexion</a></li>";
         }else{
             $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
 			<li><a href=".$url_testform.">Se connecter</a></li>";
-
 
         }
         $html = <<<FIN
@@ -87,7 +91,7 @@ FIN;
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -105,7 +109,7 @@ FIN;
   </body>
 </html>
 FIN;
-
         return $html;
     }
+
 }
