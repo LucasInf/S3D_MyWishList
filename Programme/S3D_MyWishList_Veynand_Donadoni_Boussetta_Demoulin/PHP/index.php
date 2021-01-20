@@ -23,6 +23,9 @@ use \mywishlist\controls\ControlReserverItem;
 use \mywishlist\controls\ControlAjoutImage;
 use \mywishlist\controls\ControlModifyImage;
 use \mywishlist\controls\ControlDeleteImage;
+use \mywishlist\controls\ControlModifyLogin;
+use \mywishlist\controls\ControlSupLogin;
+
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,
@@ -106,6 +109,14 @@ $app->post('/reserverItem' , ControlReserverItem::class.':reserverItem'  )->setN
 //Creation login
 $app->get('/formlogin' , ControlCreationLogin::class.':formlogin'  )->setName('formlogin'  );
 $app->post('/nouveaulogin' , ControlCreationLogin::class.':nouveaulogin'  )->setName('nouveaulogin'  );
+
+//Modification login
+$app->get('/choixmodifylogin' , ControlModifyLogin::class.':choixmodifylogin'  )->setName('choixmodifylogin'  );
+$app->post('/modifylogin' , ControlModifyLogin::class.':modifylogin'  )->setName('modifylogin'  );
+
+//Suppression login
+$app->get('/choixsuplogin' , ControlSupLogin::class.':choixsuplogin'  )->setName('choixsuplogin'  );
+$app->post('/suplogin' , ControlSupLogin::class.':suplogin'  )->setName('suplogin'  );
 
 //Connexion login
 $app->get('/testform' , ControlConnexionLogin::class.':testform'  )->setName('testform'  );
