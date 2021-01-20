@@ -28,10 +28,10 @@ class ControlModifyLogin
         $pass = filter_var($post['pass'], FILTER_SANITIZE_STRING);
         $Npass = filter_var($post['Npass'], FILTER_SANITIZE_STRING);
 
-        $u = User::where('login', '=', $login)->first();
+        $u = User::where('id', '=', $login)->first();
+        $verifpass = password_verify($pass, $u->pass);
         if ($u != null) {
-            if($pass == $u->pass){
-                $u = new User();
+            if($verifpass == 1){
                 $u->login = $login;
                 $u->pass = password_hash($Npass, PASSWORD_DEFAULT);
                 $u->save();
@@ -41,6 +41,9 @@ class ControlModifyLogin
         }else{
             $login = 'Compte non existant';
         }
+
+        $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
+        return $rs->withRedirect($url_items);
     }
 
     public function choixmodifylogin(Request $rq, Response $rs, $args): Response{

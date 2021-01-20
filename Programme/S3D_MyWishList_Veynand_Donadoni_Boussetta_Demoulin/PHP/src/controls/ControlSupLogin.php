@@ -8,7 +8,10 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use mywishlist\vue\VueSupLogin;
+use mywishlist\vue\VueDeconnexionLogin;
 use \mywishlist\models\User;
+use \mywishlist\models\Liste;
+use \mywishlist\models\Item;
 
 class ControlSupLogin
 {
@@ -27,25 +30,33 @@ class ControlSupLogin
         $login = $_SESSION['login'];
         $pass = filter_var($post['pass'], FILTER_SANITIZE_STRING);
 
-        $u = User::where('login', '=', $login)->first();
+        $u = User::where('id', '=', $login)->first();
         $ls = Liste::where('user_id', '=', $u->id)->first();
-
+        $verifpass = password_verify($pass, $u->pass);
         if ($u != null) {
-            if($pass == $u->pass){
-                foreach($ls as $l){
-                    $is = Item::where('liste_id', '=', $ls->no)->first();
-                    foreach ($is as $i){
-                        $i->delete();
+            if($pass != null) {
+                if ($verifpass == 1 ) {
+                    foreach ($ls as $l) {
+                        $is = Item::where('liste_id', '=', $ls->no)->first();
+                        foreach ($is as $i) {
+                            $i->delete();
+                        }
+                        $l->delete();
                     }
-                    $l->delete();
+                    $u->delete();
+                } else {
+                    $login = 'Ancien mot de passe incorrect';
                 }
-                $u->delete();
-            } else {
-                $login = 'Ancien mot de passe incorrect';
+            }else{
+                $login = 'Veuillez inserer le mot de passe';
             }
         }else{
             $login = 'Compte non existant';
         }
+
+        $vue = new VueDeconnexionLogin( [] , $this->container ) ;
+        $rs->getBody()->write( $vue->render( 2 ) ) ;
+        return $rs;
     }
 
     public function choixsuplogin(Request $rq, Response $rs, $args): Response{
