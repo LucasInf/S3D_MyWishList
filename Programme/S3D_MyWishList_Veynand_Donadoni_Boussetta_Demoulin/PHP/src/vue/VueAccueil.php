@@ -46,7 +46,7 @@ if(isset($_SESSION['login'])) {
     }else{
     $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
 			<li><a href=".$url_testform.">Se connecter</a></li>";
-            
+
 
 }
     $html = <<<FIN
@@ -54,7 +54,7 @@ if(isset($_SESSION['login'])) {
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="../../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>

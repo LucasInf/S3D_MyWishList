@@ -86,7 +86,7 @@ class VueAffichageItem
 				<li><a href="$url_listes">Listes</a></li>
 				<li><a href="$url_listesCr">Liste créateur</a></li>
 				$ada
-				
+
 			</ul>
 		</nav>
     $content

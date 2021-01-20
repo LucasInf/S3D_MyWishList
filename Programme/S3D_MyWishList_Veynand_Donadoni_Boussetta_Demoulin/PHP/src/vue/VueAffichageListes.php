@@ -67,7 +67,7 @@ session_start();
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="CSS/design.css" />
+    <link rel="stylesheet" href="../../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -78,7 +78,7 @@ session_start();
 				<li><a href="$url_listes">Listes</a></li>
 				<li><a href="$url_listesCr">Liste créateur</a></li>
 				$ada
-				
+
 			</ul>
 		</nav>
     $content
