@@ -28,7 +28,7 @@
 
 17. [x] *Créer un compte* (Veynand Lucas)
 18. [x] *S'authentifier* (Quentin Donadoni, Veynand Lucas)
-19. [ ] *Modifier son compte*
+19. [x] *Modifier son compte* (Boussetta Nael)
 20. [x] *Rendre une liste publique* (Veynand Lucas)
 21. [x] *Afficher les listes de souhaits publiques* (Veynand Lucas)
 22. [ ] *Créer une cagnotte sur un item*
@@ -36,7 +36,7 @@
 24. [ ] *Uploader une image*
 25. [ ] *Créer un compte participant*
 26. [x] *Afficher la liste des créateurs* (Veynand Lucas)
-27. [ ] *Supprimer son compte*
+27. [x] *Supprimer son compte* (Boussetta Nael)
 28. [ ] *Joindre des listes à son compte*
 
 ## Contributeurs 
