@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0068f1d-7607-4d97-8a3c-e083e21f2770" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueCreationLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueCreationLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueModificationListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueModificationListe.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
