@@ -822,17 +822,17 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.20.0",
-            "version_normalized": "1.20.0.0",
+            "version": "v1.22.0",
+            "version_normalized": "1.22.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "39d483bdf39be819deabf04ec872eb0b2410b531"
+                "reference": "f377a3dd1fde44d37b9831d68dc8dea3ffd28e13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/39d483bdf39be819deabf04ec872eb0b2410b531",
-                "reference": "39d483bdf39be819deabf04ec872eb0b2410b531",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f377a3dd1fde44d37b9831d68dc8dea3ffd28e13",
+                "reference": "f377a3dd1fde44d37b9831d68dc8dea3ffd28e13",
                 "shasum": ""
             },
             "require": {
@@ -841,11 +841,11 @@
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
-            "time": "2020-10-23T14:02:19+00:00",
+            "time": "2021-01-07T16:49:33+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.20-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -885,7 +885,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.20.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.22.0"
             },
             "funding": [
                 {
@@ -905,17 +905,17 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.4.17",
-            "version_normalized": "4.4.17.0",
+            "version": "v4.4.18",
+            "version_normalized": "4.4.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "84821e6a14a637e817f25d11147388695b6f790a"
+                "reference": "c1001b7d75b3136648f94b245588209d881c6939"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/84821e6a14a637e817f25d11147388695b6f790a",
-                "reference": "84821e6a14a637e817f25d11147388695b6f790a",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/c1001b7d75b3136648f94b245588209d881c6939",
+                "reference": "c1001b7d75b3136648f94b245588209d881c6939",
                 "shasum": ""
             },
             "require": {
@@ -948,7 +948,7 @@
                 "symfony/config": "",
                 "symfony/yaml": ""
             },
-            "time": "2020-11-27T06:35:49+00:00",
+            "time": "2020-12-08T16:59:59+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -976,7 +976,7 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v4.4.17"
+                "source": "https://github.com/symfony/translation/tree/v4.4.18"
             },
             "funding": [
                 {

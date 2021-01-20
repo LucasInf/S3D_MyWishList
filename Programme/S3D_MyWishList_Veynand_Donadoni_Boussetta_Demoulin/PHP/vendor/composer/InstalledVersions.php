@@ -14,24 +14,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '6ae771fe9b004df76d7da47272deb5137a2c7da0',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '6ae771fe9b004df76d7da47272deb5137a2c7da0',
     ),
     'doctrine/inflector' => 
     array (
@@ -159,21 +159,21 @@ private static $installed = array (
     ),
     'symfony/polyfill-mbstring' => 
     array (
-      'pretty_version' => 'v1.20.0',
-      'version' => '1.20.0.0',
+      'pretty_version' => 'v1.22.0',
+      'version' => '1.22.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '39d483bdf39be819deabf04ec872eb0b2410b531',
+      'reference' => 'f377a3dd1fde44d37b9831d68dc8dea3ffd28e13',
     ),
     'symfony/translation' => 
     array (
-      'pretty_version' => 'v4.4.17',
-      'version' => '4.4.17.0',
+      'pretty_version' => 'v4.4.18',
+      'version' => '4.4.18.0',
       'aliases' => 
       array (
       ),
-      'reference' => '84821e6a14a637e817f25d11147388695b6f790a',
+      'reference' => 'c1001b7d75b3136648f94b245588209d881c6939',
     ),
     'symfony/translation-contracts' => 
     array (
