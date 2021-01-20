@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="webetu.iutnc.univ-lorraine.fr" id="79b2ecfb-7949-4917-9252-6f929618d2aa" port="22" customName="Wish_BDDV" nameFormat="CUSTOM" username="veynand2u">
+        <option name="customName" value="Wish_BDDV" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

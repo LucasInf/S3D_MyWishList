@@ -26,7 +26,7 @@ class VueAffichageItem
         $url_choixmodifyItem   = $this->container->router->pathFor( 'choixmodifyItem',    ['id' => $i['id']]         ) ;
 
         $html = "<h2>ITEM : {$i['nom']}</h2>";
-        $html .= "<p><img src='../../img/{$i['img']}'/></p>";
+        $html .= "<p><img src='../../../img/{$i['img']}'/></p>";
         $html .= "<b>Description:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
 
@@ -75,7 +75,7 @@ class VueAffichageItem
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="../../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>

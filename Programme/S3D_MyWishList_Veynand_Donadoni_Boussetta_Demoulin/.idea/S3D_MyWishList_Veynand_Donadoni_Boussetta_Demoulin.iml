@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/PHP/src" isTestSource="false" packagePrefix="mywishlist\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/illuminate/container" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/illuminate/contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/illuminate/database" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/illuminate/support" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/kylekatarnls/update-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/pimple/pimple" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/slim/slim" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/PHP/vendor/symfony/translation-contracts" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="V7" />
+  </component>
+</module>

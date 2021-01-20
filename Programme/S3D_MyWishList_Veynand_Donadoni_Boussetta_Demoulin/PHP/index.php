@@ -32,7 +32,7 @@ $config = ['settings' => [
 ]];
 
 $db = new \Illuminate\Database\Capsule\Manager();
-$db->addConnection(parse_ini_file('src/conf/conf.ini'));
+$db->addConnection(parse_ini_file('../../../conf.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
 

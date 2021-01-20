@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6fa84f0a-9600-4d99-b6dd-a5df2d9fd923" name="Wish_BDDV" url="http://webetu.iutnc.univ-lorraine.fr/www/veynand2u/">
+        <fileTransfer rootFolder="/users/home/veynand2u" accessType="SFTP" host="webetu.iutnc.univ-lorraine.fr" port="22" sshConfigId="79b2ecfb-7949-4917-9252-6f929618d2aa" sshConfig="Wish_BDDV">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
