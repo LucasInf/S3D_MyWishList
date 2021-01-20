@@ -42,8 +42,7 @@ class ControlCreationItem
         $l->nom = $nom;
         $l->descr = $descr;
         $l->tarif = $tarif;
-        $l->img=$_FILES["fileToUpload"]["name"];
-        $l->save();
+
 
         $target_dir = "../img/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -86,6 +85,7 @@ class ControlCreationItem
             echo "Sorry, your file was not uploaded.";
 
         } else {
+            $l->img=$_FILES["fileToUpload"]["name"];
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
             } else {
@@ -93,6 +93,8 @@ class ControlCreationItem
             }
         }
 
+
+        $l->save();
         $url_items = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
         return $rs->withRedirect($url_items);
 

@@ -20,8 +20,8 @@ class VueSupLogin
         $url_suplogin = $this->container->router->pathFor( 'suplogin' ) ;
         $html = <<<FIN
 <form method="POST" action="$url_suplogin">
-	<label>Login:<br> {$_SESSION['login']}</label><br>
-	<label>Mot de passe: <br><input type="text" name="pass"/></label><br>
+	<h2>Etes vous sur de vouloir supprimer votre compte ?</h2>
+	<label>Rentrez votre mot de passe: <br><input type="text" name="pass"/></label><br>
 	<button type="submit">Supprimer le login</button>
 </form>
 FIN;

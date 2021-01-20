@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
+use mywishlist\vue\VueErreur;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use mywishlist\vue\VueSupLogin;
-use mywishlist\vue\VueDeconnexionLogin;
 use \mywishlist\models\User;
 use \mywishlist\models\Liste;
 use \mywishlist\models\Item;
@@ -31,33 +31,30 @@ class ControlSupLogin
         $pass = filter_var($post['pass'], FILTER_SANITIZE_STRING);
 
         $u = User::where('id', '=', $login)->first();
-        $ls = Liste::where('user_id', '=', $u->id)->first();
+        $ls = Liste::where('user_id', '=', $u->id)->get();
         $verifpass = password_verify($pass, $u->pass);
         if ($u != null) {
-            if($pass != null) {
-                if ($verifpass == 1 ) {
-                    foreach ($ls as $l) {
-                        $is = Item::where('liste_id', '=', $ls->no)->first();
-                        foreach ($is as $i) {
-                            $i->delete();
-                        }
-                        $l->delete();
+            if ($verifpass) {
+                foreach ($ls as $l) {
+                    $is = Item::where('liste_id', '=', $l['no'])->get();
+                    foreach ($is as $i) {
+                        $i->delete();
                     }
-                    $u->delete();
-                    session_destroy();
-                    $vue = new VueSupLogin( [] , $this->container ) ;
-                    $rs->getBody()->write( $vue->render( 0 ) ) ;
-                    return $rs;
-                } else {
-                    $rs= 'Ancien mot de passe incorrect';
-                    return $rs;
+                    $l->delete();
                 }
-            }else{
-                $rs = 'Veuillez inserer le mot de passe';
+                $u->delete();
+                session_destroy();
+                $vue = new VueSupLogin( [] , $this->container ) ;
+                $rs->getBody()->write( $vue->render( 0 ) ) ;
+                return $rs;
+            } else {
+                $vue = new VueErreur( [] , $this->container ) ;
+                $rs->getBody()->write( $vue->render( 0 ) ) ;
                 return $rs;
             }
         }else{
-            $rs = 'Compte non existant';
+            $vue = new VueErreur( [] , $this->container ) ;
+            $rs->getBody()->write( $vue->render( 0 ) ) ;
             return $rs;
         }
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace mywishlist\controls;
 
+use mywishlist\vue\VueErreur;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -33,19 +34,22 @@ class ControlModifyLogin
         $verifpass = password_verify($pass, $u->pass);
         if ($u != null) {
             if($verifpass == 1){
-                $u->login = $login;
                 $u->pass = password_hash($Npass, PASSWORD_DEFAULT);
-                $u->save();
+                $u->update();
             } else {
-                $login = 'Ancien mot de passe incorrect';
+                $vue = new VueErreur( [] , $this->container ) ;
+                $rs->getBody()->write( $vue->render( 0 ) ) ;
+                return $rs;
             }
         }else{
-            $login = 'Compte non existant';
+            $vue = new VueErreur( [] , $this->container ) ;
+            $rs->getBody()->write( $vue->render( 0 ) ) ;
+            return $rs;
         }
 
         if ($u) $_SESSION['login'] = $u->id;
         $vue = new VueConnexionLogin( [ 'res' => $u ] , $this->container ) ;
-        $rs->getBody()->write( $vue->render( 2 ) ) ;
+        $rs->getBody()->write( $vue->render( 3 ) ) ;
         return $rs;
     }
 
