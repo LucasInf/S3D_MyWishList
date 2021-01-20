@@ -33,7 +33,8 @@ $config = ['settings' => [
 
 $db = new \Illuminate\Database\Capsule\Manager();
 
-$db->addConnection(parse_ini_file('../../../conf.ini'));
+$db->addConnection(parse_ini_file('../../../conf.ini')); // lucas
+//$db->addConnection(parse_ini_file('../../../../conf.ini')); //nael
 
 $db->setAsGlobal();
 $db->bootEloquent();

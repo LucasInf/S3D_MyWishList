@@ -21,10 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0068f1d-7607-4d97-8a3c-e083e21f2770" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/PHP/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/conf/conf.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAccueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueConnexionLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueConnexionLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611160085302</updated>
       <workItem from="1611160086371" duration="206000" />
-      <workItem from="1611160301535" duration="2094000" />
+      <workItem from="1611160301535" duration="2260000" />
     </task>
     <servers />
   </component>
