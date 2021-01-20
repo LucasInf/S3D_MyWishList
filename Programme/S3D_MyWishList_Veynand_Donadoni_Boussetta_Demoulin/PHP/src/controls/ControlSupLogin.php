@@ -44,19 +44,21 @@ class ControlSupLogin
                         $l->delete();
                     }
                     $u->delete();
+                    $vue = new VueSupLogin( [] , $this->container ) ;
+                    $rs->getBody()->write( $vue->render( 0 ) ) ;
+                    return $rs;
                 } else {
-                    $login = 'Ancien mot de passe incorrect';
+                    $rs= 'Ancien mot de passe incorrect';
+                    return $rs;
                 }
             }else{
-                $login = 'Veuillez inserer le mot de passe';
+                $rs = 'Veuillez inserer le mot de passe';
+                return $rs;
             }
         }else{
-            $login = 'Compte non existant';
+            $rs = 'Compte non existant';
+            return $rs;
         }
-
-        $vue = new VueDeconnexionLogin( [] , $this->container ) ;
-        $rs->getBody()->write( $vue->render( 2 ) ) ;
-        return $rs;
     }
 
     public function choixsuplogin(Request $rq, Response $rs, $args): Response{

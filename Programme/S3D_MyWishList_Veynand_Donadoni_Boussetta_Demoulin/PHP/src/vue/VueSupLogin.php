@@ -32,6 +32,10 @@ FIN;
     public function render( int $select ) : string {
 
         switch ($select) {
+            case 0 : {
+                $content = '<h2>Compte supprimé avec succès</h2>';
+                break;
+            }
             case 1 : {
                 $content = $this->choixsuplogin();
                 break;
@@ -57,10 +61,6 @@ FIN;
 		<nav>
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
-				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
-				<li><a href="$url_choixsuplogin">Supprimer un compte</a></li>
-				<li><a href="$url_testform">Se connecter</a></li>
 			</ul>
 		</nav>
     $content
