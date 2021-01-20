@@ -37,19 +37,18 @@ class VueAccueil {
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
         $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
         $url_listesCr = $this->container->router->pathFor( 'aff_createur'             ) ;
-				$url_choixmodifylogin  = $this->container->router->pathFor( 'choixmodifylogin'              ) ;
-        $url_choixsuplogin  = $this->container->router->pathFor( 'choixsuplogin'              ) ;
+        $url_compte     = $this->container->router->pathFor( 'aff_compte'             ) ;
 
 
 if(isset($_SESSION['login'])) {
     $ada = "<li><a href=".$url_voslistes.">Vos Listes</a></li>
 				<li><a href=".$url_form_liste.">Nouvelle Liste</a></li>
 				<li><a href=".$url_deconnexion.">Deconnexion</a></li>
-				<li><a href=".$url_choixmodifylogin.">Modifier un compte</a></li>
-				<li><a href=".$url_choixsuplogin.">Supprimer un compte</a></li>";
+                <li><a href=".$url_compte.">Mon compte</a></li>";
     }else{
     $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
 			<li><a href=".$url_testform.">Se connecter</a></li>";
+            
 
 }
     $html = <<<FIN

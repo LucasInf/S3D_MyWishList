@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0068f1d-7607-4d97-8a3c-e083e21f2770" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PHP/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAccueil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611160085302</updated>
       <workItem from="1611160086371" duration="206000" />
-      <workItem from="1611160301535" duration="2260000" />
+      <workItem from="1611160301535" duration="3550000" />
     </task>
     <servers />
   </component>
@@ -112,6 +114,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611160419612" />
+    <state x="505" y="243" key="NewPhpClassDialog" timestamp="1611163024688">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="505" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611163024688" />
     <state x="401" y="224" key="SettingsEditor" timestamp="1611160574171">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use \mywishlist\controls\ControlAccueil;
+use mywishlist\controls\ControlAffichageCompte;
 use mywishlist\controls\ControlAffichageCreateur;
 use \mywishlist\controls\ControlDeconnexionLogin;
 use \mywishlist\controls\ControlCreationListe;
@@ -127,6 +128,9 @@ $app->post('/testpass' , ControlConnexionLogin::class.':testpass'  )->setName('t
 
 //Deconnexion login
 $app->get('/deconnexion' , ControlDeconnexionLogin::class.':deconnexion'  )->setName('deconnexion'  );
+
+//Afficher compte
+$app->get('/affichageCompte' , ControlAffichageCompte::class.':affichageCompte'  )->setName('aff_compte'  );
 
 //Afficher createur
 $app->get('/affichageCreateur' , ControlAffichageCreateur::class.':afficherCreateur'  )->setName('aff_createur'  );
