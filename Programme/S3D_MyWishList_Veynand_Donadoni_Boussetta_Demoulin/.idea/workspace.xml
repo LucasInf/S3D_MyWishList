@@ -21,29 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0068f1d-7607-4d97-8a3c-e083e21f2770" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCompte.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCompte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCreateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCreateur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageListe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageListes.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageListes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageVosListes.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageVosListes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAjoutImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAjoutImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAjoutMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAjoutMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueConnexionLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueConnexionLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueCreationItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueCreationItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueCreationListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueCreationListe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueCreationLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueCreationLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueDeconnexionLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueDeconnexionLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueDeleteImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueDeleteImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueListePublic.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueListePublic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueModificationItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueModificationItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueModificationListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueModificationListe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueModifyImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueModifyImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueModifyLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueModifyLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueReserverItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueReserverItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueSupItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueSupItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueSupListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueSupListe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueSupLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueSupLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +85,7 @@
       <updated>1611160085302</updated>
       <workItem from="1611160086371" duration="206000" />
       <workItem from="1611160301535" duration="11519000" />
+      <workItem from="1611172214151" duration="1174000" />
     </task>
     <servers />
   </component>
