@@ -31,7 +31,7 @@ FIN;
         $url_deconnexion = $this->container->router->pathFor( 'racine' ) ;
         $html = <<<FIN
 <form method="GET" action="$url_deconnexion">
-	<label>Vous etes bien deconnecté<br> </label><br>
+	<h2>Vous etes bien deconnecté<br> </h2>
 	<button type="submit">Retourner à l'accueil</button>
 </form>
 FIN;
@@ -59,17 +59,18 @@ FIN;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
         $url_listesCr = $this->container->router->pathFor( 'aff_createur'             ) ;
+        $url_compte     = $this->container->router->pathFor( 'aff_compte'             ) ;
 
 
         if(isset($_SESSION['login'])) {
             $ada = "<li><a href=".$url_voslistes.">Vos Listes</a></li>
 				<li><a href=".$url_form_liste.">Nouvelle Liste</a></li>
-				<li><a href=".$url_deconnexion.">Deconnexion</a></li>";
+                <li><a href=".$url_compte.">Mon compte</a></li>";
         }else{
             $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
 			<li><a href=".$url_testform.">Se connecter</a></li>";
+
 
         }
         $html = <<<FIN
@@ -77,7 +78,7 @@ FIN;
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -95,7 +96,7 @@ FIN;
   </body>
 </html>
 FIN;
+
         return $html;
     }
-
 }
