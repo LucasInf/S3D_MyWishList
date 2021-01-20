@@ -21,12 +21,23 @@ class VueAffichageItem
     private function unItem() : string {
         session_start();
         $i = $this->tab[0];
-
+        $_SESSION['idItem']=$i['id'];
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem',    ['id' => $i['id']]         ) ;
         $url_choixmodifyItem   = $this->container->router->pathFor( 'choixmodifyItem',    ['id' => $i['id']]         ) ;
 
+        $url_change_image = $this->container->router->pathFor('changeImage', ['id' => $i['id']] );
         $html = "<h2>ITEM : {$i['nom']}</h2>";
-        $html .= "<p><img src='../../../img/{$i['img']}'/></p>";
+        if(!$i['img']==NULL){
+            $html .= "<p><img src='../../../img/{$i['img']}'/></p>";
+        }else{
+            $html.= <<<FIN
+    <form method="POST" action="$url_change_image" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload">
+	<br><input type="submit" value="Ajouter item" name="submit"><br>
+</form>
+FIN;
+
+        }
         $html .= "<b>Description:</b> {$i['descr']}<br>";
         $html .= "<b>Tarif:</b> {$i['tarif']}<br>";
 

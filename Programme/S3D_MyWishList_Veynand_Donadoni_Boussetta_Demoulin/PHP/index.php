@@ -81,6 +81,7 @@ $app->post('/passerListePublic', ControlListePublic::class.':passagePublic')->se
 //affichage item
 $app->get('/items' , ControlAffichageItem::class.':afficherItems'  )->setName('aff_items'  );
 $app->get('/item/{id}' , ControlAffichageItem::class.':afficherItem'  )->setName('aff_item'  );
+$app->post('/item/{id}' , ControlAffichageItem::class.':changeImage'  )->setName('changeImage'  );
 //Creation item
 $app->get('/nouvelitem' , ControlCreationItem::class.':formItem'  )->setName('formItem'  );
 $app->post('/nouvelitem' , ControlCreationItem::class.':newItem'  )->setName('newItem'  );
