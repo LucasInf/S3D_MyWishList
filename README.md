@@ -1,4 +1,40 @@
-# S3D_MyWishList
+# Projet MyWishlist
+
+
+## Membres du groupe
+* Lucas Veynand
+* Quentin Donadoni
+* Nael Boussetta
+* Eddy Demoulin
+
+## Suivi du projet
+
+Excel : (TableauDeBord.xlsx)
+ 
+Rendu web : [Site MyWishList](https://webetu.iutnc.univ-lorraine.fr/www/veynand2u/php/PHP/index.php/)
+
+## Installation
+* Cloner le dépôt :
+```
+  git clone https://github.com/LucasInf/S3D_MyWishList.git
+```
+* Importer le fichier wish.sql se trouvant dans S3D_MyWishList_Veynand_Donadoni_Boussetta_Demoulin à votre base de données
+* Créer un dossier conf dans racine
+    * Créer le fichier *conf.ini* dans ce dossier
+    * Modifier le pour qu'il corresponde aux informations de votre base de données :
+```
+  	driver=mysql
+	username=?
+	password=?
+	host=localhost
+	database=?
+	charset=utf8
+	collation=utf8_unicode_ci
+	prefix=
+  ```
+
+* Supprimer le fichier composer.lock  puis installer le composer.phar à l'aide de la commande php composer install.htaccess 
+* Le site est prêt, vous pouvez l'utiliser
 
 ## Fonctionnalités
 
@@ -39,9 +75,4 @@
 27. [x] *Supprimer son compte* (Boussetta Nael / Veynand Lucas)
 28. [ ] *Joindre des listes à son compte*
 
-## Contributeurs 
 
-**BOUSSETTA Nael**
-**DEMOULIN Eddy**
-**DONADONI Quentin**
-**VEYNAND Lucas**
