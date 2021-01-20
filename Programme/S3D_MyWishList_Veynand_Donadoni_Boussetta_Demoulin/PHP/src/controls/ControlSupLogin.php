@@ -44,6 +44,7 @@ class ControlSupLogin
                         $l->delete();
                     }
                     $u->delete();
+                    session_destroy();
                     $vue = new VueSupLogin( [] , $this->container ) ;
                     $rs->getBody()->write( $vue->render( 0 ) ) ;
                     return $rs;
@@ -59,6 +60,7 @@ class ControlSupLogin
             $rs = 'Compte non existant';
             return $rs;
         }
+
     }
 
     public function choixsuplogin(Request $rq, Response $rs, $args): Response{
