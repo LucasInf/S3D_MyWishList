@@ -19,8 +19,7 @@ Rendu web : [Site MyWishList](https://webetu.iutnc.univ-lorraine.fr/www/veynand2
   git clone https://github.com/LucasInf/S3D_MyWishList.git
 ```
 * Importer le fichier wish.sql se trouvant dans S3D_MyWishList_Veynand_Donadoni_Boussetta_Demoulin à votre base de données
-* Créer un dossier conf dans racine
-    * Créer le fichier *conf.ini* dans ce dossier
+* Créer le fichier *conf.ini* dans la racine
     * Modifier le pour qu'il corresponde aux informations de votre base de données :
 ```
   	driver=mysql
