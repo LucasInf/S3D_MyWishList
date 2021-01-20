@@ -25,7 +25,7 @@ class VueCreationItem
 	<label>Description:<br> <input type="text" name="descr"/></label><br>
 	<label>Tarif: <br><input type="number" name="tarif"/></label><br>
 	<input type="file" name="fileToUpload" id="fileToUpload">
-	<input type="submit" value="Upload Image" name="submit">
+	<br><input type="submit" value="Ajouter item" name="submit"><br>
 </form>
 FIN;
 
