@@ -47,11 +47,15 @@ class ControlModificationListe
                 $url_liste = $this->container->router->pathFor( 'aff_liste', ['token' => $_SESSION['token']] ) ;
                 return $rs->withRedirect($url_liste);
             }else{
-                echo "La liste n'a pas été trouvée car les informations données ne sont pas valides";
+              $vue = new VueErreur( [] , $this->container ) ;
+              $rs->getBody()->write( $vue->render( 0 ) ) ;
+              return $rs;
             }
 
         }else{
-            echo "La liste n'a pas été trouvée car aucun token n'a été donné";
+          $vue = new VueErreur( [] , $this->container ) ;
+              $rs->getBody()->write( $vue->render( 0 ) ) ;
+              return $rs;
         }
         $url_liste = $this->container->router->pathFor( 'aff_liste', ['no' => $_SESSION['no']] ) ;
         $rs->withRedirect($url_liste);

@@ -32,11 +32,15 @@ class ControlDeleteImage
                 $url_items = $this->container->router->pathFor( 'aff_items' ) ;
                 return $rs->withRedirect($url_items);
             }else{
-                echo "L'item n'a pas été trouvé car les informations données ne sont pas valides";
+              $vue = new VueErreur( [] , $this->container ) ;
+              $rs->getBody()->write( $vue->render( 0 ) ) ;
+              return $rs;
             }
 
         }else{
-            echo "L'item n'a pas été trouvé car aucun identifiant de liste n'a été donné";
+          $vue = new VueErreur( [] , $this->container ) ;
+              $rs->getBody()->write( $vue->render( 0 ) ) ;
+              return $rs;
         }
 
     }
@@ -48,4 +52,3 @@ class ControlDeleteImage
     }
 
 }
-

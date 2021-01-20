@@ -32,11 +32,15 @@ class ControlSupListe
                 $url_liste = $this->container->router->pathFor('aff_listes');
                 return $rs->withRedirect($url_liste);
             } else {
-                echo "La liste n'a pas été trouvée car les informations données ne sont pas valides";
+              $vue = new VueErreur( [] , $this->container ) ;
+              $rs->getBody()->write( $vue->render( 0 ) ) ;
+              return $rs;
             }
 
         } else {
-            echo "La liste n'a pas été trouvée car aucun token n'a été donné";
+          $vue = new VueErreur( [] , $this->container ) ;
+              $rs->getBody()->write( $vue->render( 0 ) ) ;
+              return $rs;
         }
         return $rs;
     }
