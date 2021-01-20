@@ -33,7 +33,7 @@ class VueAffichageItem
         if(!$i['img']==NULL){
             $html .= "<p><img src='../../../img/{$i['img']}'/></p>";
         }else{
-            if(isset($_SESSION['login']) && $liste['user_id']==$_SESSION['login']){
+            if((isset($_SESSION['login'])) && ($liste['user_id']==$_SESSION['login'])){
                 $html.= <<<FIN
     <form method="POST" action="$url_change_image" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
