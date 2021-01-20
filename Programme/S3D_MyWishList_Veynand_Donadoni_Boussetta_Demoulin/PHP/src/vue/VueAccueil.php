@@ -35,7 +35,6 @@ class VueAccueil {
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
 		$url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
         $url_listesCr = $this->container->router->pathFor( 'aff_createur'             ) ;
         $url_compte     = $this->container->router->pathFor( 'aff_compte'             ) ;
 
@@ -43,7 +42,6 @@ class VueAccueil {
 if(isset($_SESSION['login'])) {
     $ada = "<li><a href=".$url_voslistes.">Vos Listes</a></li>
 				<li><a href=".$url_form_liste.">Nouvelle Liste</a></li>
-				<li><a href=".$url_deconnexion.">Deconnexion</a></li>
                 <li><a href=".$url_compte.">Mon compte</a></li>";
     }else{
     $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
