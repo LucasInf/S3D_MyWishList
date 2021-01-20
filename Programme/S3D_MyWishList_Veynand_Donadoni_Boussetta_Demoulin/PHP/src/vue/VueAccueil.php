@@ -44,9 +44,9 @@ class VueAccueil {
 if(isset($_SESSION['login'])) {
     $ada = "<li><a href=".$url_voslistes.">Vos Listes</a></li>
 				<li><a href=".$url_form_liste.">Nouvelle Liste</a></li>
-				<li><a href=".$url_deconnexion.">Deconnexion</a></li>";
-				<li><a href="$url_choixmodifylogin">Modifier un compte</a></li>
-				<li><a href="$url_choixsuplogin">Supprimer un compte</a></li>
+				<li><a href=".$url_deconnexion.">Deconnexion</a></li>
+				<li><a href=".$url_choixmodifylogin.">Modifier un compte</a></li>
+				<li><a href=".$url_choixsuplogin.">Supprimer un compte</a></li>";
     }else{
     $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
 			<li><a href=".$url_testform.">Se connecter</a></li>";
