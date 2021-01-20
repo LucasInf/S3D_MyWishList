@@ -51,6 +51,7 @@ class ControlCreationItem
 
 
         if(isset($_POST["submit"])) {
+            $l->img=$_FILES["fileToUpload"]["name"];
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
@@ -85,7 +86,6 @@ class ControlCreationItem
             echo "Sorry, your file was not uploaded.";
 
         } else {
-            $l->img=$_FILES["fileToUpload"]["name"];
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
             } else {
@@ -99,4 +99,6 @@ class ControlCreationItem
         return $rs->withRedirect($url_items);
 
     }
+
+
 }
