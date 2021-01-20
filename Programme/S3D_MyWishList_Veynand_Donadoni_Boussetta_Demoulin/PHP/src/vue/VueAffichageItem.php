@@ -33,8 +33,8 @@ class VueAffichageItem
             $html.= <<<FIN
     <form method="POST" action="$url_change_image" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
-	<br><input type="submit" value="Ajouter item" name="submit"><br>
-</form>
+	<input type="submit" value="Ajouter image" name="submit">
+    </form>
 FIN;
 
         }
@@ -87,7 +87,7 @@ FIN;
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="../../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
