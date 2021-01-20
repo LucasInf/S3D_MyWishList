@@ -1,4 +1,0 @@
-Pour l'installation du projet, il faut ajouter le fichier wish.sql 
-situé dans S3D_MyWishList_Veynand_Donadoni_Boussetta_Demoulin
-Pour y accéder depuis internet il faut le lien :
-https://webetu.iutnc.univ-lorraine.fr/www/veynand2u/php/PHP/index.php/
