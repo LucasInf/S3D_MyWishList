@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0068f1d-7607-4d97-8a3c-e083e21f2770" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/controls/ControlCreationListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/controls/ControlCreationListe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCreateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCreateur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageVosListes.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageVosListes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueSupItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueSupItem.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611160085302</updated>
       <workItem from="1611160086371" duration="206000" />
-      <workItem from="1611160301535" duration="10223000" />
+      <workItem from="1611160301535" duration="10570000" />
     </task>
     <servers />
   </component>

@@ -66,6 +66,21 @@ FIN;
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../CSS/design.css" />
+    <title>Exemple</title>
+  </head>
+  <body>
+		<h1><a href="$url_accueil">Wish List</a></h1>
+		<nav>
+			<ul>
+				<li><a href="$url_accueil">Accueil</a></li>
+				<li><a href="$url_listes">Listes</a></li>
+				<li><a href="$url_listesCr">Liste créateur</a></li>
+				$ada
+
+			</ul>
+		</nav>
+    $content
+  </body>
 </html>
 FIN;
         return $html;
