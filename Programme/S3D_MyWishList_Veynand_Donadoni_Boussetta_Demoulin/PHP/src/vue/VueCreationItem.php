@@ -20,7 +20,7 @@ class VueCreationItem
             $url_new_item = $this->container->router->pathFor('newItem');
             $html = <<<FIN
     <form method="POST" action="$url_new_item" enctype="multipart/form-data">
-    <h2>Ajout d'un item dans la liste {$_SESSION['no']}</h2>
+    <h2>Ajout d'un item dans la liste {$_SESSION['titre']}</h2>
     <label>Nom:<br> <input type="text" name="nom"/></label><br>
 	<label>Description:<br> <input type="text" name="descr"/></label><br>
 	<label>Tarif: <br><input type="number" name="tarif"/></label><br>
@@ -64,7 +64,7 @@ FIN;
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../CSS/design.css" />
+    <link rel="stylesheet" href="../../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
