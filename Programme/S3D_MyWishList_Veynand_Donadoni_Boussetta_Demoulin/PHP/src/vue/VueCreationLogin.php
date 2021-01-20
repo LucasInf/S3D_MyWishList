@@ -36,7 +36,7 @@ FIN;
                 break;
             }
             case 2 : {
-                $content = 'Login <b>'.$this->tab['login'].'</b> enregistré';
+                $content = '<h2>Login <b>'.$this->tab['login'].'</b> enregistré</h2>';
                 break;
             }
 
