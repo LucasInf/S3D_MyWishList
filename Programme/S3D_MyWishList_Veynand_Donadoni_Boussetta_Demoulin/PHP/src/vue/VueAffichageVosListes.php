@@ -18,11 +18,14 @@ class VueAffichageVosListes
 
     private function vosListes(): string
     {
+        $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $html = '';
         $html .= "<h2>Vos Wish Listes :</h2>";
         session_start();
+        $num = false;
         foreach ($this->tab as $liste) {
             if ($liste['user_id'] == $_SESSION['login']){
+                $num = true;
                 $url_liste = $this->container->router->pathFor('aff_liste', ['token' => $liste['token']]);
 
                 if ($liste['public']){
@@ -39,6 +42,11 @@ class VueAffichageVosListes
             }
 
         }
+        if (!$num){
+            $html .= "<h3>Vous n'avez pour le moment aucune liste</h3>";
+        }
+        $html .= "<h3></h3><a href=".$url_form_liste.">Nouvelle Liste</a></h3>";
+
         $html = "<ul>$html</ul>";
         return $html;
     }

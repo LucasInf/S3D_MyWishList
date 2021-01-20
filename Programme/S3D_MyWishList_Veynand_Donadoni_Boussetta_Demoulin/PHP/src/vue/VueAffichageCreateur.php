@@ -27,13 +27,18 @@ class VueAffichageCreateur
         $html = "<h2>CREATEUR :</h2>";
 
         $tab=[];
+        $n = false;
         foreach($listes as $liste){
             $user = User::where('id','=',$liste['user_id'])->first() ;
             if ($user != null && !in_array($liste['user_id'], $tab )){
+                $n = true;
                 $tab[] = $liste['user_id'];
-                $html .= "<b>{$user['login']}</b><br>";
+                $html .= "<h3><strong>{$user['login']}</strong></h3>";
             }
 
+        }
+        if (!$n){
+            $html .= "<h3>Il n'y a pour le moment aucun créateur</h3>";
         }
 
         return $html;

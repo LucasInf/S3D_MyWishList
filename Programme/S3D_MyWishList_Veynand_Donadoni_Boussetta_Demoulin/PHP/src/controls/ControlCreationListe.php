@@ -47,7 +47,7 @@ class ControlCreationListe
         $l->public=false;
         $l->save();
 
-        $url_listes = $this->container->router->pathFor( 'aff_listes' ) ;
+        $url_listes = $this->container->router->pathFor( 'aff_voslistes' ) ;
         return $rs->withRedirect($url_listes);
 
     }
