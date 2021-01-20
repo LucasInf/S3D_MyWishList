@@ -24,6 +24,7 @@ class VueAffichageItem
         $_SESSION['idItem']=$i['id'];
         $url_choixdeleteItem   = $this->container->router->pathFor( 'choixdeleteItem',    ['id' => $i['id']]         ) ;
         $url_choixmodifyItem   = $this->container->router->pathFor( 'choixmodifyItem',    ['id' => $i['id']]         ) ;
+        $url_delete_image = $this->container->router->pathFor( 'deleteImage'             ) ;
 
         $liste= Liste::where('no','=',$i['liste_id'])->first();
         $reserv = Reservation::where('idItem', '=', $i['id'])->first();
