@@ -39,7 +39,16 @@ FIN;
             }
             case 2 : {
                 $res = ($this->tab['res'])? 'OK' : 'KO';
-                $content = 'Mot de passe <b>'.$res.'</b>';
+
+                if ($res=='OK'){
+                    $content = '<h2>Bon mot de passe, vous etes maintenant connecté </h2>';
+                }else{
+                    $content = '<h2>Mauvais mot de passe, veuillez retenter </h2>';
+                }
+                break;
+            }
+            case 3 : {
+                $content = '<h2>Votre compte à bien été modifié </h2>';
                 break;
             }
 
@@ -68,7 +77,7 @@ FIN;
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="CSS/design.css" />
+    <link rel="stylesheet" href="../CSS/design.css" />
     <title>Exemple</title>
   </head>
   <body>
@@ -79,7 +88,7 @@ FIN;
 				<li><a href="$url_listes">Listes</a></li>
 				<li><a href="$url_listesCr">Liste créateur</a></li>
 				$ada
-				
+
 			</ul>
 		</nav>
     $content
