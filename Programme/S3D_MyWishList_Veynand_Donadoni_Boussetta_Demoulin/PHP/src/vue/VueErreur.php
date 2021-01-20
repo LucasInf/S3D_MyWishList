@@ -2,14 +2,11 @@
 declare(strict_types=1);
 
 namespace mywishlist\vue;
-use mywishlist\models\Liste;
-use mywishlist\models\Reservation;
-use mywishlist\models\User;
-use function Sodium\add;
+use \mywishlist\models\User;
 
-class VueAffichageCompte
-{
-    private $tab;
+class VueErreur {
+
+    private $tab; // tab array PHP
     private $container;
 
     public function __construct($tab, $container) {
@@ -18,53 +15,32 @@ class VueAffichageCompte
 
     }
 
-
-
-    private function monCompte() : string {
-        session_start();
-        $user = User::where('id','=',$_SESSION['login'])->first();
-        $url_choixmodifylogin  = $this->container->router->pathFor( 'choixmodifylogin'              ) ;
-        $url_choixsuplogin  = $this->container->router->pathFor( 'choixsuplogin'              ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
-        $html = "<h2>MON COMPTE :</h2>";
-
-
-        $html .= "<strong>login: {$user['login']}</strong><br><br>";
-        $html .= "<b><a href=$url_choixmodifylogin>Modifier mon compte</a></b><br>";
-        $html .= "<b><a href=$url_choixsuplogin>Supprimer mon compte</a></b><br>";
-        $html .= "<b><a href=$url_deconnexion>Deconnecter de mon compte</a></b><br>";
-
-
-        return $html;
-    }
-
-
     public function render( int $select ) : string {
 
         switch ($select) {
-            case 1 : { // un item
-                $content = $this->monCompte();
-                break;
+            case 0 : {
+                $content = '<h2>UNE ERREUR EST APPARUE</h2>';
             }
-
         }
+
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
         $url_voslistes     = $this->container->router->pathFor( 'aff_voslistes'             ) ;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_formlogin  = $this->container->router->pathFor( 'formlogin'              ) ;
         $url_testform   = $this->container->router->pathFor( 'testform'               ) ;
-        $url_deconnexion   = $this->container->router->pathFor( 'deconnexion'               ) ;
         $url_listesCr = $this->container->router->pathFor( 'aff_createur'             ) ;
+        $url_compte     = $this->container->router->pathFor( 'aff_compte'             ) ;
 
 
         if(isset($_SESSION['login'])) {
             $ada = "<li><a href=".$url_voslistes.">Vos Listes</a></li>
 				<li><a href=".$url_form_liste.">Nouvelle Liste</a></li>
-				<li><a href=".$url_deconnexion.">Deconnexion</a></li>";
+                <li><a href=".$url_compte.">Mon compte</a></li>";
         }else{
             $ada = "<li><a href=".$url_formlogin.">S'inscrire</a></li>
 			<li><a href=".$url_testform.">Se connecter</a></li>";
+
 
         }
         $html = <<<FIN
@@ -90,7 +66,7 @@ class VueAffichageCompte
   </body>
 </html>
 FIN;
+
         return $html;
     }
-
 }

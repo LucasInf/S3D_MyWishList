@@ -20,7 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0068f1d-7607-4d97-8a3c-e083e21f2770" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/controls/ControlModifyLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/controls/ControlModifyLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/controls/ControlSupLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/controls/ControlSupLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAccueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCompte.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageCompte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageListes.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageListes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueAffichageVosListes.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueAffichageVosListes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueConnexionLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueConnexionLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueModifyLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueModifyLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/src/vue/VueSupLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/src/vue/VueSupLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611160085302</updated>
       <workItem from="1611160086371" duration="206000" />
-      <workItem from="1611160301535" duration="3869000" />
+      <workItem from="1611160301535" duration="8045000" />
     </task>
     <servers />
   </component>
@@ -108,14 +117,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="476" y="224" key="#SSH_Configurations/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611160571277" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611168258091">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611168258091" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1611160419612">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611160419612" />
-    <state x="505" y="243" key="NewPhpClassDialog" timestamp="1611163024688">
+    <state x="505" y="243" key="NewPhpClassDialog" timestamp="1611167802313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="505" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611163024688" />
+    <state x="505" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611167802313" />
     <state x="401" y="224" key="SettingsEditor" timestamp="1611160574171">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

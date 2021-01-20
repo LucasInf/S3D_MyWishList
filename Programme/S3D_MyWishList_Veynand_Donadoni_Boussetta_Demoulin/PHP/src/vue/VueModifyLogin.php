@@ -20,8 +20,8 @@ class VueModifyLogin
         $url_modifylogin = $this->container->router->pathFor( 'modifylogin' ) ;
         $html = <<<FIN
 <form method="POST" action="$url_modifylogin">
-	<label>Login:<br> {$_SESSION['login']}</label><br>
-	<label>Mot de passe: <br><input type="text" name="pass"/></label><br>
+	<h2>Etes vous sur de vouloir modifier votre compte ?</h2>
+	<label>Rentrez votre mot de passe: <br><input type="text" name="pass"/></label><br>
 	<label>Nouveau mot de passe: <br><input type="text" name="Npass"/></label><br>
 	<button type="submit">Modifier le login</button>
 </form>
